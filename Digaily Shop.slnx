@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/Shop.Application/">
+    <Project Path="Application.Class/Application.Class.csproj" />
+  </Folder>
+  <Folder Name="/Shop.Data/">
+    <Project Path="Data.Class/Data.Class.csproj" />
+  </Folder>
+  <Folder Name="/Shop.Web/">
+    <Project Path="Web.Mvc/Web.Mvc.csproj" />
+  </Folder>
+</Solution>
