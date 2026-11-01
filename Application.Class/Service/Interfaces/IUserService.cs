@@ -1,0 +1,20 @@
+﻿using Data.Class.DTOs.Account;
+using Data.Class.entities.Account;
+
+namespace Application.Class.Service.Interfaces
+{
+    public interface IUserService : IAsyncDisposable
+    {
+        #region Register & Login
+        Task RegisterOrLoginUser(registerUserDto dto);
+        Task<bool> CheckUserExistMobile(string Mobile);
+        Task<bool> CheckMobileAuthorization(MobileActivationDTOs dto);
+        Task<User?> GetUSerByMobile(string mobile);
+        Task<EditUserInfoDTOs> GetEditUserDetails(long UserId);
+        Task EditUserDetails(EditUserInfoDTOs dto);
+        Task<UserDetailDTOs> GetUserDetails(long UserId);
+        Task<bool> SendActivationSms(string Mobile);
+        
+        #endregion
+    }
+}

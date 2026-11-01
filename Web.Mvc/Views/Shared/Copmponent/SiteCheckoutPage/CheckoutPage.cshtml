@@ -1,0 +1,28 @@
+﻿<div id="v-checkout" hidden>
+    <div class="crumb"><a href="#/shop/All">Shop</a><span aria-hidden="true">/</span><span>Checkout</span></div>
+    <h1 class="page-title">Checkout</h1>
+    <div class="co" style="margin-top:28px">
+        <form class="glass" id="coForm">
+            <h2>Your details</h2>
+            <div class="fields">
+                <label class="field">Full name<input name="name" required autocomplete="name" placeholder="Your name"></label>
+                <label class="field">Email for delivery<input name="email" type="email" required autocomplete="email" placeholder="you@example.com"></label>
+            </div>
+            <fieldset>
+                <legend>Pay with</legend>
+                <div class="pays">
+                    <label class="pay"><input type="radio" name="pay" value="Card" checked><span><b data-icon="card" data-size="20" data-sw="1.9" style="display:inline-flex"></b>Card</span></label>
+                    <label class="pay"><input type="radio" name="pay" value="Wallet"><span><b data-icon="wallet" data-size="20" data-sw="1.9" style="display:inline-flex"></b>Digital wallet</span></label>
+                    <label class="pay"><input type="radio" name="pay" value="Bank"><span><b data-icon="bank" data-size="20" data-sw="1.9" style="display:inline-flex"></b>Bank transfer</span></label>
+                </div>
+            </fieldset>
+            <p class="hint">This is a demo page. No payment is taken and nothing is sent.</p>
+            <button class="btn primary big" type="submit" id="placeBtn"><span data-icon="lock" data-size="18" data-stroke="#FFFBE6" data-sw="2"></span>Place order</button>
+        </form>
+        <aside class="glass" aria-label="Order summary">
+            <h2>Order summary</h2>
+            <div class="lines" id="coLines" style="overflow:visible"></div>
+            <div class="sum"><div class="tot"><span>Total</span><b id="coTotal">$0.00</b></div><div class="note">Taxes are calculated when you pay. Digital items are delivered by email.</div></div>
+        </aside>
+    </div>
+</div>

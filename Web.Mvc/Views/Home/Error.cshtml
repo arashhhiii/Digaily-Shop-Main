@@ -1,0 +1,24 @@
+@{
+    Layout = null;
+    var requestId = ViewData["RequestId"] as string;
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Something went wrong | Digaily</title>
+    <link rel="stylesheet" href="~/Site/home.css" asp-append-version="true">
+</head>
+<body>
+    <main style="max-width: 720px; margin: 10vh auto; padding: 2rem;">
+        <h1>Something went wrong.</h1>
+        <p>We couldn't complete your request. Please try again later.</p>
+        @if (!string.IsNullOrEmpty(requestId))
+        {
+            <p>Request ID: <code>@requestId</code></p>
+        }
+        <p><a href="/">Return to the home page</a></p>
+    </main>
+</body>
+</html>

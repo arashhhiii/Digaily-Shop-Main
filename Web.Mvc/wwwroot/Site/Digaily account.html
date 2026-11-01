@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign in | Digaily</title>
+<link rel="stylesheet" href="">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=DM+Sans:wght@400;500;700&display=swap">
+<style>
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+<div class="stage">
+  <header class="glass bar">
+    <a class="logo" href="Digaily main.html" aria-label="Digaily home">
+      <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="11" fill="#1E4FB8"/><path d="M18 9v13M12.5 16.5L18 22l5.5-5.5M10 27h16" fill="none" stroke="#FFFBE6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Digaily</span>
+    </a>
+    <a class="back" href="Digaily main.html"><span data-icon="left" data-size="18" data-sw="2"></span>Back to shop</a>
+  </header>
+
+  <main class="glass auth" id="auth">
+
+    <!-- SIGN IN -->
+    <section class="pane in" id="paneIn" aria-labelledby="tIn">
+      <h1 id="tIn">Welcome back</h1>
+      <p class="sub">Sign in to see your orders and license keys.</p>
+
+      <div class="tabs" role="tablist" aria-label="Sign in method">
+        <button class="tab" type="button" role="tab" id="tabEmail" aria-selected="true" aria-controls="fIn" data-method="email"><span data-icon="mail" data-size="18" data-sw="2"></span>Email</button>
+        <button class="tab" type="button" role="tab" id="tabPhone" aria-selected="false" aria-controls="fPh" tabindex="-1" data-method="phone"><span data-icon="phone" data-size="18" data-sw="2"></span>Phone</button>
+      </div>
+
+      <!-- email + password -->
+      <form id="fIn" role="tabpanel" aria-labelledby="tabEmail" novalidate>
+        <div class="field">
+          <label for="inEmail">Email</label>
+          <div class="input"><span data-icon="mail" data-size="20" data-stroke="#34476B" data-sw="1.9"></span>
+            <input id="inEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" aria-describedby="inEmailE"></div>
+          <span class="err" id="inEmailE"></span>
+        </div>
+        <div class="field">
+          <label for="inPass">Password</label>
+          <div class="input"><span data-icon="lock" data-size="20" data-stroke="#34476B" data-sw="1.9"></span>
+            <input id="inPass" name="pass" type="password" autocomplete="current-password" placeholder="Your password" aria-describedby="inPassE">
+            <button class="eye" type="button" data-eye="inPass" aria-label="Show password" aria-pressed="false"></button></div>
+          <span class="err" id="inPassE"></span>
+        </div>
+        <div class="row">
+          <label class="check"><input type="checkbox" id="remember" checked>Keep me signed in</label>
+          <a class="link" href="#" id="forgot">Forgot password?</a>
+        </div>
+        <div class="msg" id="mIn" role="status" aria-live="polite"></div>
+        <button class="btn primary big full" type="submit" id="bIn">Sign in</button>
+      </form>
+
+      <!-- phone number + code -->
+      <form id="fPh" role="tabpanel" aria-labelledby="tabPhone" novalidate hidden>
+        <div class="field">
+          <label for="phNum">Phone number</label>
+          <div class="phone">
+            <select class="sel" id="phCc" aria-label="Country code" autocomplete="tel-country-code">
+              <option value="98" selected>IR +98</option>
+              <option value="31">NL +31</option>
+              <option value="1">US +1</option>
+              <option value="44">GB +44</option>
+              <option value="49">DE +49</option>
+              <option value="33">FR +33</option>
+              <option value="34">ES +34</option>
+              <option value="39">IT +39</option>
+              <option value="90">TR +90</option>
+              <option value="971">AE +971</option>
+              <option value="966">SA +966</option>
+              <option value="20">EG +20</option>
+              <option value="91">IN +91</option>
+              <option value="86">CN +86</option>
+              <option value="81">JP +81</option>
+              <option value="82">KR +82</option>
+              <option value="7">RU +7</option>
+              <option value="61">AU +61</option>
+              <option value="55">BR +55</option>
+              <option value="52">MX +52</option>
+            </select>
+            <div class="input"><span data-icon="phone" data-size="20" data-stroke="#34476B" data-sw="1.9"></span>
+              <input id="phNum" name="phone" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="912 345 6789" aria-describedby="phNumE"></div>
+          </div>
+          <span class="err" id="phNumE"></span>
+        </div>
+        <p class="hint">We will text you a 6 digit code. You can ask for a new one every minute.</p>
+        <div class="msg" id="mPh" role="status" aria-live="polite"></div>
+        <button class="btn primary big full" type="submit" id="bPh">Send code</button>
+      </form>
+
+      <a class="guest" href="Digaily main.html">Continue as guest <span data-icon="arrow" data-size="16" data-sw="2"></span></a>
+      <p class="switch">New to Digaily? <button class="linkbtn" type="button" data-go="up">Create an account</button></p>
+    </section>
+
+    <!-- SIGN UP -->
+    <section class="pane up" id="paneUp" aria-labelledby="tUp">
+      <h1 id="tUp">Create your account</h1>
+      <p class="sub">Free to join. Keys land in your inbox.</p>
+      <form id="fUp" novalidate>
+        <div class="field">
+          <label for="upName">Full name</label>
+          <div class="input"><span data-icon="user" data-size="20" data-stroke="#34476B" data-sw="1.9"></span>
+            <input id="upName" name="name" type="text" autocomplete="name" placeholder="Your name" aria-describedby="upNameE"></div>
+          <span class="err" id="upNameE"></span>
+        </div>
+        <div class="field">
+          <label for="upEmail">Email</label>
+          <div class="input"><span data-icon="mail" data-size="20" data-stroke="#34476B" data-sw="1.9"></span>
+            <input id="upEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" aria-describedby="upEmailE"></div>
+          <span class="err" id="upEmailE"></span>
+        </div>
+        <div class="field">
+          <label for="upPass">Password</label>
+          <div class="input"><span data-icon="lock" data-size="20" data-stroke="#34476B" data-sw="1.9"></span>
+            <input id="upPass" name="pass" type="password" autocomplete="new-password" placeholder="At least 8 characters" aria-describedby="upPassE strengthTxt">
+            <button class="eye" type="button" data-eye="upPass" aria-label="Show password" aria-pressed="false"></button></div>
+          <div class="meter" aria-hidden="false"><div class="bars" id="bars" data-s="0"><i></i><i></i><i></i><i></i></div><span id="strengthTxt">&nbsp;</span></div>
+          <span class="err" id="upPassE"></span>
+        </div>
+        <label class="check"><input type="checkbox" id="terms" aria-describedby="termsE"><span>I agree to the <a href="#">Terms</a> and <a href="#">Privacy policy</a>.</span></label>
+        <span class="err" id="termsE" style="margin-top:-8px"></span>
+        <div class="msg" id="mUp" role="status" aria-live="polite"></div>
+        <button class="btn primary big full" type="submit" id="bUp">Create account</button>
+      </form>
+      <p class="switch">Already have an account? <button class="linkbtn" type="button" data-go="in">Sign in</button></p>
+    </section>
+
+    <!-- ENTER THE CODE -->
+    <section class="pane code" id="paneCode" aria-labelledby="tCode" inert>
+      <h1 id="tCode">Enter the code</h1>
+      <p class="sub">We sent a 6 digit code to <b id="codeTo">your phone</b>.</p>
+      <form id="fCode" novalidate>
+        <div class="field">
+          <span id="otpLabel">6 digit code</span>
+          <div class="otp" id="otp" role="group" aria-labelledby="otpLabel">
+            <input type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="one-time-code" aria-label="Digit 1 of 6">
+            <input type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" aria-label="Digit 2 of 6">
+            <input type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" aria-label="Digit 3 of 6">
+            <input type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" aria-label="Digit 4 of 6">
+            <input type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" aria-label="Digit 5 of 6">
+            <input type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" aria-label="Digit 6 of 6">
+          </div>
+          <span class="err" id="otpE"></span>
+        </div>
+        <p class="demo" id="demoHint" hidden>Demo mode: no real text message is sent. Your code is <b id="demoCode"></b></p>
+        <div class="msg" id="mCode" role="status" aria-live="polite"></div>
+        <button class="btn primary big full" type="submit" id="bCode">Verify and sign in</button>
+      </form>
+      <p class="resend">
+        <span id="resendTxt" class="t"></span>
+        <button class="linkbtn" type="button" id="resend" hidden>Resend code</button>
+        <button class="linkbtn" type="button" id="changeNum">Change number</button>
+      </p>
+    </section>
+
+    <!-- SLIDING PANEL (desktop) -->
+    <div class="ov-wrap" aria-hidden="false">
+      <div class="ov">
+        <div class="ov-panel ov-l" id="ovL">
+          <div class="mark"><span data-icon="user" data-size="30" data-stroke="#FFFBE6" data-sw="1.7"></span></div>
+          <h2>Already one of us?</h2>
+          <p>Sign in to pick up where you left off: your orders, keys and cart.</p>
+          <button class="btn ghost big" type="button" data-go="in">Sign in</button>
+        </div>
+        <div class="ov-panel ov-r" id="ovR">
+          <div class="mark"><span data-icon="gift" data-size="30" data-stroke="#FFFBE6" data-sw="1.7"></span></div>
+          <h2>New to Digaily?</h2>
+          <p>Create a free account and shop digital, delivered daily.</p>
+          <ul class="perks">
+            <li><span class="ck" data-icon="check" data-size="14" data-stroke="#FFFBE6" data-sw="2.6"></span>Instant license keys</li>
+            <li><span class="ck" data-icon="check" data-size="14" data-stroke="#FFFBE6" data-sw="2.6"></span>All your orders in one place</li>
+            <li><span class="ck" data-icon="check" data-size="14" data-stroke="#FFFBE6" data-sw="2.6"></span>Secure, simple checkout</li>
+          </ul>
+          <button class="btn cream big" type="button" data-go="up">Sign up</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div class="sr" id="live" aria-live="polite"></div>
+<script src="" defer></script>
+<script>
+</script>
+</body>
+</html>

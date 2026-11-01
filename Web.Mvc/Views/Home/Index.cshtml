@@ -1,0 +1,114 @@
+﻿<div id="v-home" style="display:flex;flex-direction:column;gap:72px">
+
+    <section class="glass slider" id="slider" aria-roledescription="carousel" aria-label="Suggested products">
+        <div class="sl-view"><div class="sl-track" id="slTrack"></div></div>
+        <div class="sl-bar">
+            <div class="sl-ctl">
+                <div class="dots" id="slDots"></div>
+                <button class="iconbtn" id="slPlay" type="button" aria-label="Pause slideshow"></button>
+            </div>
+            <div class="sl-ctl">
+                <button class="iconbtn" id="slPrev" type="button" aria-label="Previous slide"><span data-icon="left" data-size="18" data-stroke="#0F2547" data-sw="2"></span></button>
+                <button class="iconbtn" id="slNext" type="button" aria-label="Next slide"><span data-icon="arrow" data-size="18" data-stroke="#0F2547" data-sw="2"></span></button>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero">
+        <div class="hero-l">
+            <div class="glass eyebrow"><b></b><span>Software, games, gift cards and courses</span></div>
+            <h1><span>Shop digital.</span><span>Delivered daily.</span></h1>
+            <p class="lead">Pick it up, pay securely, and get your license key or download link straight to your inbox. Everything digital, in one calm place.</p>
+            <div class="row">
+                <a class="btn primary big" href="#/shop/All">Start shopping <span data-icon="arrow" data-size="18" data-stroke="#FFFBE6" data-sw="2"></span></a>
+                <a class="btn glassy big" href="#/bundles">See bundles</a>
+            </div>
+        </div>
+        <div class="hero-r">
+            <article class="glass hero-card">
+                <div class="tile" style="background:#1E4FB8"><span data-icon="shield" data-size="68" data-stroke="#FFFBE6" data-sw="1.5"></span></div>
+                <div class="body">
+                    <div><div class="name">Shield Antivirus</div><div class="meta">1 year, 3 devices</div></div>
+                    <div class="buy"><span class="price">$29.99</span><div class="acts"><a class="viewbtn" href="#/product/1" aria-label="View Shield Antivirus">View</a><button class="add" type="button" data-add="1">Add</button></div></div>
+                </div>
+            </article>
+            <div class="glass chip" style="top:56px;right:0"><span data-icon="mail" data-size="20" data-sw="1.9"></span><span>Sent to your inbox</span></div>
+            <div class="glass chip" style="bottom:92px;left:0"><span data-icon="lock" data-size="20" data-sw="1.9"></span><span>Secure checkout</span></div>
+            <div class="glass chip" style="bottom:8px;right:12%"><span data-icon="key" data-size="20" data-sw="1.9"></span><span>Instant license keys</span></div>
+        </div>
+    </section>
+
+    <section id="shop">
+        <div class="sec-head">
+            <h2>Find your next download</h2>
+            <p>Browse by category, add to your cart, and open it from the top bar when you are ready.</p>
+        </div>
+        <div class="cats" id="cats" role="group" aria-label="Filter by category"></div>
+        <nav class="crumbs" id="crumbs" aria-label="Current filter" hidden></nav>
+        <div class="grid" id="grid"></div>
+        <div class="more-wrap" id="moreWrap" hidden><button class="btn glassy big" id="moreBtn" type="button" aria-expanded="false" aria-controls="grid"></button></div>
+        <p class="hint" id="none" hidden>No products match your search. Try another word.</p>
+    </section>
+
+    <section id="bundles" class="glass-dark banner">
+        <div>
+            <h2>Bundle it up</h2>
+            <p>Pair a software license with a course or a game pack and check out in one go.</p>
+        </div>
+        <a class="btn cream big" href="#/shop/All">Explore bundles <span data-icon="arrow" data-size="18" data-stroke="#0F2547" data-sw="2"></span></a>
+    </section>
+
+    <section class="why">
+        <h2>Why people shop Digaily</h2>
+        <div class="feats">
+            <div class="glass feat lift"><div class="ico" style="background:#1E4FB8"><span data-icon="mail" data-size="26" data-stroke="#FFFBE6" data-sw="1.8"></span></div><h3>Instant delivery</h3><p>Keys and download links arrive in your inbox as soon as payment clears.</p></div>
+            <div class="glass feat lift"><div class="ico" style="background:#2F6FD0"><span data-icon="lock" data-size="26" data-stroke="#FFFBE6" data-sw="1.8"></span></div><h3>Secure checkout</h3><p>Pay with the method you trust, with your details kept private.</p></div>
+            <div class="glass feat lift"><div class="ico" style="background:#BCD4F7"><span data-icon="headset" data-size="26" data-stroke="#0F2547" data-sw="1.8"></span></div><h3>Friendly support</h3><p>Stuck on an activation? A real person is a message away.</p></div>
+        </div>
+    </section>
+
+    <section id="blog" class="blog">
+        <div class="blog-head">
+            <h2>From the Digaily blog</h2>
+            <p>Buying guides, learning tips and how-tos for your digital life.</p>
+        </div>
+        <div class="posts">
+            <article class="glass card post lift">
+                <div class="tile" style="background:#1E4FB8"><span class="tag">Guides</span><span data-icon="shield" data-size="64" data-stroke="#FFFBE6" data-sw="1.5"></span></div>
+                <div class="body">
+                    <div class="pmeta"><span>Oct 28, 2026</span><span aria-hidden="true">&middot;</span><span>5 min read</span></div>
+                    <div class="name">How to choose the right antivirus for your devices</div>
+                    <p>What to look for in a license, how many devices you need, and why a one-year plan is a good place to start.</p>
+                    <a class="more" href="#/blog">Read article <span data-icon="arrow" data-size="16" data-stroke="#1E4FB8" data-sw="2"></span></a>
+                </div>
+            </article>
+            <article class="glass card post lift">
+                <div class="tile" style="background:#2F6FD0"><span class="tag">Learning</span><span data-icon="book" data-size="64" data-stroke="#FFFBE6" data-sw="1.5"></span></div>
+                <div class="body">
+                    <div class="pmeta"><span>Oct 21, 2026</span><span aria-hidden="true">&middot;</span><span>4 min read</span></div>
+                    <div class="name">Learn a language on a busy schedule</div>
+                    <p>Short, regular lessons beat long cram sessions. Here is how to fit them into your day.</p>
+                    <a class="more" href="#/blog">Read article <span data-icon="arrow" data-size="16" data-stroke="#1E4FB8" data-sw="2"></span></a>
+                </div>
+            </article>
+            <article class="glass card post lift">
+                <div class="tile" style="background:#BCD4F7"><span class="tag">Gifts</span><span data-icon="gift" data-size="64" data-stroke="#0F2547" data-sw="1.5"></span></div>
+                <div class="body">
+                    <div class="pmeta"><span>Oct 14, 2026</span><span aria-hidden="true">&middot;</span><span>3 min read</span></div>
+                    <div class="name">A quick guide to thoughtful digital gifts</div>
+                    <p>Gift cards, game keys and courses: how to match the right digital gift to the person.</p>
+                    <a class="more" href="#/blog">Read article <span data-icon="arrow" data-size="16" data-stroke="#1E4FB8" data-sw="2"></span></a>
+                </div>
+            </article>
+            <article class="glass card post lift">
+                <div class="tile" style="background:#FFD84D"><span class="tag">Help</span><span data-icon="game" data-size="64" data-stroke="#0F2547" data-sw="1.5"></span></div>
+                <div class="body">
+                    <div class="pmeta"><span>Oct 7, 2026</span><span aria-hidden="true">&middot;</span><span>3 min read</span></div>
+                    <div class="name">Activating your game key, step by step</div>
+                    <p>From the email in your inbox to your first level: a simple walkthrough for redeeming keys.</p>
+                    <a class="more" href="#/blog">Read article <span data-icon="arrow" data-size="16" data-stroke="#1E4FB8" data-sw="2"></span></a>
+                </div>
+            </article>
+        </div>
+    </section>
+</div>

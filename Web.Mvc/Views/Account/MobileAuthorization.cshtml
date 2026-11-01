@@ -1,0 +1,50 @@
+@model Data.Class.DTOs.Account.MobileActivationDTOs
+
+@{
+    ViewData["Title"] = "Mobile authorization";
+    Layout = null;
+    var Mobile = (string)ViewData["Moblie"];
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/Site/Account.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=DM+Sans:wght@400;500;700&display=swap">
+    <style>
+    </style>
+</head>
+<section class="pane code" id="paneCode" aria-labelledby="tCode" inert>
+    <h1 id="tCode">Enter the code</h1>
+    <p class="sub">We sent a 6 digit code to <b id="codeTo">your phone</b>.</p>
+    <form asp-area="" asp-controller="Account" asp-action="MobileAuthorization" method="post" id="fCode" novalidate>
+        <input type="hidden" asp-for="Token" id="CaptchInput"/>
+        <input asp-for="Mobile" value="@Mobile"/>
+        <div class="field">
+            <span id="otpLabel">6 digit code</span>
+            <div class="otp" id="otp" role="group" aria-labelledby="otpLabel">
+                <input asp-for="activationCodePart1" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="one-time-code" aria-label="Digit 1 of 6">
+                <input asp-for="activationCodePart2" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" aria-label="Digit 2 of 6">
+                <input asp-for="activationCodePart3" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" aria-label="Digit 3 of 6">
+                <input asp-for="activationCodePart4" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" aria-label="Digit 4 of 6">
+                <input asp-for="activationCodePart5" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" aria-label="Digit 5 of 6">
+                <input asp-for="activationCodePart6" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" aria-label="Digit 6 of 6">
+            </div>
+            <span class="err" id="otpE"></span>
+        </div>
+        <p class="demo" id="demoHint" hidden>Demo mode: no real text message is sent. Your code is <b id="demoCode"></b></p>
+        <div class="msg" id="mCode" role="status" aria-live="polite"></div>
+        <button class="btn primary big full" type="submit" id="bCode">@ViewData["Title"]</button>
+    </form>
+    <p class="resend">
+        <span id="resendTxt" class="t"></span>
+        <button class="linkbtn" type="button" id="resend" hidden>Resend code</button>
+        <button class="linkbtn" type="button" id="changeNum">Change number</button>
+    </p>
+</section>
+<script src="~/Site/Account.js" defer/>
+</html>

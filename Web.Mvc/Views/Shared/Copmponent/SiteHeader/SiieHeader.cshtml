@@ -1,0 +1,41 @@
+﻿<div class="bg" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+<div class="wrap" id="top">
+
+    <div class="hwrap">
+        <header class="glass bar">
+            <a class="logo" href="#/" aria-label="Digaily home">
+                <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="11" fill="#1E4FB8" /><path d="M18 9v13M12.5 16.5L18 22l5.5-5.5M10 27h16" fill="none" stroke="#FFFBE6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                <span>Digaily</span>
+            </a>
+            <button class="catbtn" id="catBtn" type="button" aria-expanded="false" aria-controls="mega">
+                <span data-icon="grid" data-size="20" data-sw="1.9"></span>
+                <span>Categories</span>
+                <span class="chev" data-icon="chev" data-size="16" data-sw="2"></span>
+            </button>
+            <nav class="nav" aria-label="Main">
+                <a href="#/shop/Software">Software</a>
+                <a href="#/shop/Games">Games</a>
+                <a href="#/shop/Gift cards">Gift cards</a>
+                <a href="#/shop/Courses">Courses</a>
+                <a href="#/bundles">Bundles</a>
+                <a href="#/blog">Blog</a>
+                <a asp-area="" asp-controller="Account" asp-action="RegisterOrLogin">Login</a>
+            </nav>
+            <label class="search">
+                <span data-icon="search" data-size="20" data-stroke="#34476B" data-sw="1.9"></span>
+                <input id="q" type="search" aria-label="Search products" placeholder="Search Digaily" autocomplete="off">
+            </label>
+            <a class="catbtn" id="acctBtn" href="#/account" aria-label="Account center" style="padding:0 12px"><span data-icon="user" data-size="20" data-sw="1.9"></span></a>
+            <button class="cartbtn" id="cartBtn" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="drawer" aria-label="Open cart">
+                <span data-icon="cart" data-size="20" data-stroke="#FFFBE6" data-sw="1.9"></span>
+                <span>Cart</span>
+                <span class="badge" id="badge">0</span>
+            </button>
+        </header>
+        <div class="glass mega" id="mega" hidden>
+            <ul class="mega-l" id="megaL" aria-label="Categories"></ul>
+            <div class="mega-r" id="megaR"></div>
+        </div>
+    </div>
+
