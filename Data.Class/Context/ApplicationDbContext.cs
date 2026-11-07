@@ -13,7 +13,7 @@ namespace Data.Class.Context
         }
 
         #region Account
-        public DbSet<User> Users { get; set; }
+       // public DbSet<User> Users { get; set; }
         #endregion
         #region FilterData
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -26,8 +26,8 @@ namespace Data.Class.Context
                 fk.DeleteBehavior = DeleteBehavior.Restrict;
 
             }
-            modelBuilder.Entity<User>().
-                HasQueryFilter(u => !u.isDelete);
+            //modelBuilder.Entity<User>().
+            //    HasQueryFilter(u => !u.isDelete);
         }
         #endregion
 
