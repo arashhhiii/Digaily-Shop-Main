@@ -6,7 +6,8 @@ namespace Application.Class.Service.Interfaces
     public interface IUserService : IAsyncDisposable
     {
         #region Register & Login
-        Task RegisterOrLoginUser(registerUserDto dto);
+        Task<bool> RegisterOrLoginUser(registerUserDto dto);
+        Task<(bool SmsSent, string? DevelopmentCode)> RegisterOrLoginUserWithCode(registerUserDto dto);
         Task<bool> CheckUserExistMobile(string Mobile);
         Task<bool> CheckMobileAuthorization(MobileActivationDTOs dto);
         Task<User?> GetUSerByMobile(string mobile);
@@ -14,6 +15,7 @@ namespace Application.Class.Service.Interfaces
         Task EditUserDetails(EditUserInfoDTOs dto);
         Task<UserDetailDTOs> GetUserDetails(long UserId);
         Task<bool> SendActivationSms(string Mobile);
+        Task<(bool SmsSent, string? DevelopmentCode)> SendActivationSmsWithCode(string Mobile);
         
         #endregion
     }

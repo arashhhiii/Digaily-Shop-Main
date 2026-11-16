@@ -1,14 +1,18 @@
 <!doctype html>
-<html lang="en">
+<html lang="fa" dir="rtl" data-theme="light">
 <head>
 <meta charset="utf-8">
+<script>try{var l=localStorage.getItem("digaily-lang");if(l&&l!=="fa")location.replace("Digaily_main_en.html"+location.hash);}catch(e){}</script>
+<meta name="theme-color" content="#FFF2C2">
+<script>(function(){var t;try{t=localStorage.getItem("digaily-theme");}catch(e){}if(!t)t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",t);})();</script>
 <script src="home.js" defer></script>
 <link rel="stylesheet" href="home.css"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Digaily | Shop digital, delivered daily</title>
+<title> Shop digital, delivered daily|Digaily | دنیای دیجیتال، تحویل روزانه| Shop digital, delivered daily</title>
+    <link rel="stylesheet" href="~/Site/home.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=DM+Sans:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=DM+Sans:wght@400;500;700&family=Vazirmatn:wght@400;500;700&display=swap">
 <style>
 
 </style>
@@ -20,36 +24,38 @@
 
 <div class="hwrap">
 <header class="glass bar">
-  <a class="logo" href="#/" aria-label="Digaily home">
+  <a class="logo" href="#/" aria-label="صفحه اصلی دیجیلی">
     <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="11" fill="#1E4FB8"/><path d="M18 9v13M12.5 16.5L18 22l5.5-5.5M10 27h16" fill="none" stroke="#FFFBE6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
     <span>Digaily</span>
   </a>
   <button class="catbtn" id="catBtn" type="button" aria-expanded="false" aria-controls="mega">
     <span data-icon="grid" data-size="20" data-sw="1.9"></span>
-    <span>Categories</span>
+    <span>دسته‌بندی‌ها</span>
     <span class="chev" data-icon="chev" data-size="16" data-sw="2"></span>
   </button>
-  <nav class="nav" aria-label="Main">
-    <a href="#/shop/Software">Software</a>
-    <a href="#/shop/Games">Games</a>
-    <a href="#/shop/Gift cards">Gift cards</a>
-    <a href="#/shop/Courses">Courses</a>
-    <a href="#/bundles">Bundles</a>
-    <a href="#/blog">Blog</a>
+  <nav class="nav" aria-label="منوی اصلی">
+    <a href="#/shop/Software">نرم‌افزار</a>
+    <a href="#/shop/Games">بازی</a>
+    <a href="#/shop/Gift cards">گیفت‌کارت</a>
+    <a href="#/shop/Courses">دوره‌ها</a>
+    <a href="#/bundles">بسته‌ها</a>
+    <a href="#/blog">وبلاگ</a>
   </nav>
   <label class="search">
-    <span data-icon="search" data-size="20" data-stroke="#34476B" data-sw="1.9"></span>
-    <input id="q" type="search" aria-label="Search products" placeholder="Search Digaily" autocomplete="off">
+    <span data-icon="search" data-size="20" data-stroke="currentColor" data-sw="1.9"></span>
+    <input id="q" type="search" aria-label="جستجوی محصولات" placeholder="جستجو در دیجیلی" autocomplete="off">
   </label>
-  <a class="catbtn" id="acctBtn" href="#/account" aria-label="Account center" style="padding:0 12px"><span data-icon="user" data-size="20" data-sw="1.9"></span></a>
-  <button class="cartbtn" id="cartBtn" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="drawer" aria-label="Open cart">
+  <a class="langbtn" id="langBtn" href="Digaily_main_en.html" hreflang="en" lang="en" onclick="try{localStorage.setItem('digaily-lang','en')}catch(e){}this.href=this.getAttribute('href')+location.hash">English</a>
+  <button class="themebtn" id="themeBtn" type="button" aria-pressed="false" aria-label="تغییر به حالت تاریک"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><mask id="tmask"><rect width="24" height="24" fill="#fff"/><circle class="mm" cx="18" cy="6" r="7" fill="#000"/></mask><circle class="core" cx="12" cy="12" r="5" fill="currentColor" stroke="none" mask="url(#tmask)"/><path class="rays" d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+  <a class="catbtn" id="acctBtn" href="#/account" aria-label="مرکز حساب کاربری" style="padding:0 12px"><span data-icon="user" data-size="20" data-sw="1.9"></span></a>
+  <button class="cartbtn" id="cartBtn" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="drawer" aria-label="باز کردن سبد خرید">
     <span data-icon="cart" data-size="20" data-stroke="#FFFBE6" data-sw="1.9"></span>
-    <span>Cart</span>
+    <span>سبد خرید</span>
     <span class="badge" id="badge">0</span>
   </button>
 </header>
 <div class="glass mega" id="mega" hidden>
-  <ul class="mega-l" id="megaL" aria-label="Categories"></ul>
+  <ul class="mega-l" id="megaL" aria-label="دسته‌بندی‌ها"></ul>
   <div class="mega-r" id="megaR"></div>
 </div>
 </div>
@@ -59,113 +65,122 @@
 <!-- HOME -->
 <div id="v-home" style="display:flex;flex-direction:column;gap:72px">
 
-  <section class="glass slider" id="slider" aria-roledescription="carousel" aria-label="Suggested products">
+  <section class="glass slider" id="slider" aria-roledescription="carousel" aria-label="محصولات پیشنهادی">
     <div class="sl-view"><div class="sl-track" id="slTrack"></div></div>
     <div class="sl-bar">
       <div class="sl-ctl">
         <div class="dots" id="slDots"></div>
-        <button class="iconbtn" id="slPlay" type="button" aria-label="Pause slideshow"></button>
+        <button class="iconbtn" id="slPlay" type="button" aria-label="توقف نمایش"></button>
       </div>
       <div class="sl-ctl">
-        <button class="iconbtn" id="slPrev" type="button" aria-label="Previous slide"><span data-icon="left" data-size="18" data-stroke="#0F2547" data-sw="2"></span></button>
-        <button class="iconbtn" id="slNext" type="button" aria-label="Next slide"><span data-icon="arrow" data-size="18" data-stroke="#0F2547" data-sw="2"></span></button>
+        <button class="iconbtn" id="slPrev" type="button" aria-label="اسلاید قبلی"><span data-icon="left" data-size="18" data-stroke="currentColor" data-sw="2"></span></button>
+        <button class="iconbtn" id="slNext" type="button" aria-label="اسلاید بعدی"><span data-icon="arrow" data-size="18" data-stroke="currentColor" data-sw="2"></span></button>
       </div>
     </div>
   </section>
 
   <section class="hero">
     <div class="hero-l">
-      <div class="glass eyebrow"><b></b><span>Software, games, gift cards and courses</span></div>
-      <h1><span>Shop digital.</span><span>Delivered daily.</span></h1>
-      <p class="lead">Pick it up, pay securely, and get your license key or download link straight to your inbox. Everything digital, in one calm place.</p>
+      <div class="glass eyebrow"><b></b><span>نرم‌افزار، بازی، گیفت‌کارت و دوره‌های آموزشی</span></div>
+      <h1><span>دیجیتال بخرید.</span><span>هر روز تحویل بگیرید.</span></h1>
+      <p class="lead">محصول را انتخاب کنید، امن پرداخت کنید و کلید لایسنس یا لینک دانلود را مستقیم در ایمیل‌تان دریافت کنید. همه‌چیز دیجیتال، در یک جای آرام.</p>
       <div class="row">
-        <a class="btn primary big" href="#/shop/All">Start shopping <span data-icon="arrow" data-size="18" data-stroke="#FFFBE6" data-sw="2"></span></a>
-        <a class="btn glassy big" href="#/bundles">See bundles</a>
+        <a class="btn primary big" href="#/shop/All">شروع خرید <span data-icon="arrow" data-size="18" data-stroke="#FFFBE6" data-sw="2"></span></a>
+        <a class="btn glassy big" href="#/bundles">مشاهده بسته‌ها</a>
       </div>
     </div>
     <div class="hero-r">
       <article class="glass hero-card">
         <div class="tile" style="background:#1E4FB8"><span data-icon="shield" data-size="68" data-stroke="#FFFBE6" data-sw="1.5"></span></div>
         <div class="body">
-          <div><div class="name">Shield Antivirus</div><div class="meta">1 year, 3 devices</div></div>
-          <div class="buy"><span class="price">$29.99</span><div class="acts"><a class="viewbtn" href="#/product/1" aria-label="View Shield Antivirus">View</a><button class="add" type="button" data-add="1">Add</button></div></div>
+          <div><div class="name">آنتی‌ویروس شیلد</div><div class="meta">یک‌ساله، ۳ دستگاه</div></div>
+          <div class="buy"><span class="price">۲۹٫۹۹ دلار</span><div class="acts"><a class="viewbtn" href="#/product/1" aria-label="مشاهده آنتی‌ویروس شیلد">مشاهده</a><button class="add" type="button" data-add="1">افزودن</button></div></div>
         </div>
       </article>
-      <div class="glass chip" style="top:56px;right:0"><span data-icon="mail" data-size="20" data-sw="1.9"></span><span>Sent to your inbox</span></div>
-      <div class="glass chip" style="bottom:92px;left:0"><span data-icon="lock" data-size="20" data-sw="1.9"></span><span>Secure checkout</span></div>
-      <div class="glass chip" style="bottom:8px;right:12%"><span data-icon="key" data-size="20" data-sw="1.9"></span><span>Instant license keys</span></div>
+      <div class="glass chip" style="top:56px;right:0"><span data-icon="mail" data-size="20" data-sw="1.9"></span><span>ارسال به ایمیل شما</span></div>
+      <div class="glass chip" style="bottom:92px;left:0"><span data-icon="lock" data-size="20" data-sw="1.9"></span><span>پرداخت امن</span></div>
+      <div class="glass chip" style="bottom:8px;right:12%"><span data-icon="key" data-size="20" data-sw="1.9"></span><span>کلید لایسنس فوری</span></div>
+    </div>
+  </section>
+
+  <section class="sx" id="showcase" aria-roledescription="carousel" aria-label="نمایشگاه محصولات">
+    <div class="sec-head"><h2>محصولات را کشف کنید</h2><p>یک محصول انتخاب کنید، جزئیاتش را ببینید و محصولات مرتبط را مرور کنید.</p></div>
+    <div class="glass sx-box">
+      <div class="sx-steps" id="sxSteps" role="group" aria-label="مراحل"></div>
+      <div class="sx-view" id="sxView"><div class="sx-track" id="sxTrack"><div class="sx-pane" id="sxP0"></div><div class="sx-pane" id="sxP1"></div><div class="sx-pane" id="sxP2"></div></div></div>
+      <div class="sx-bar"><button class="btn glassy" id="sxPrev" type="button"><span data-icon="left" data-size="18" data-stroke="currentColor" data-sw="2"></span>قبلی</button><button class="btn primary" id="sxNext" type="button">بعدی<span data-icon="arrow" data-size="18" data-stroke="#FFFBE6" data-sw="2"></span></button></div>
     </div>
   </section>
 
   <section id="shop">
     <div class="sec-head">
-      <h2>Find your next download</h2>
-      <p>Browse by category, add to your cart, and open it from the top bar when you are ready.</p>
+      <h2>دانلود بعدی‌تان را پیدا کنید</h2>
+      <p>بر اساس دسته‌بندی مرور کنید، به سبد خرید اضافه کنید و هر وقت آماده بودید آن را از نوار بالا باز کنید.</p>
     </div>
-    <div class="cats" id="cats" role="group" aria-label="Filter by category"></div>
-    <nav class="crumbs" id="crumbs" aria-label="Current filter" hidden></nav>
+    <div class="cats" id="cats" role="group" aria-label="فیلتر بر اساس دسته‌بندی"></div>
+    <nav class="crumbs" id="crumbs" aria-label="فیلتر فعلی" hidden></nav>
     <div class="grid" id="grid"></div>
     <div class="more-wrap" id="moreWrap" hidden><button class="btn glassy big" id="moreBtn" type="button" aria-expanded="false" aria-controls="grid"></button></div>
-    <p class="hint" id="none" hidden>No products match your search. Try another word.</p>
+    <p class="hint" id="none" hidden>محصولی با جستجوی شما پیدا نشد. کلمه دیگری امتحان کنید.</p>
   </section>
 
   <section id="bundles" class="glass-dark banner">
     <div>
-      <h2>Bundle it up</h2>
-      <p>Pair a software license with a course or a game pack and check out in one go.</p>
+      <h2>یک‌جا بخرید</h2>
+      <p>لایسنس نرم‌افزار را با یک دوره یا بسته بازی ترکیب کنید و یک‌جا پرداخت کنید.</p>
     </div>
-    <a class="btn cream big" href="#/shop/All">Explore bundles <span data-icon="arrow" data-size="18" data-stroke="#0F2547" data-sw="2"></span></a>
+    <a class="btn cream big" href="#/shop/All">مشاهده بسته‌ها <span data-icon="arrow" data-size="18" data-stroke="currentColor" data-sw="2"></span></a>
   </section>
 
   <section class="why">
-    <h2>Why people shop Digaily</h2>
+    <h2>چرا مردم از دیجیلی خرید می‌کنند</h2>
     <div class="feats">
-      <div class="glass feat lift"><div class="ico" style="background:#1E4FB8"><span data-icon="mail" data-size="26" data-stroke="#FFFBE6" data-sw="1.8"></span></div><h3>Instant delivery</h3><p>Keys and download links arrive in your inbox as soon as payment clears.</p></div>
-      <div class="glass feat lift"><div class="ico" style="background:#2F6FD0"><span data-icon="lock" data-size="26" data-stroke="#FFFBE6" data-sw="1.8"></span></div><h3>Secure checkout</h3><p>Pay with the method you trust, with your details kept private.</p></div>
-      <div class="glass feat lift"><div class="ico" style="background:#BCD4F7"><span data-icon="headset" data-size="26" data-stroke="#0F2547" data-sw="1.8"></span></div><h3>Friendly support</h3><p>Stuck on an activation? A real person is a message away.</p></div>
+      <div class="glass feat lift"><div class="ico" style="background:#1E4FB8"><span data-icon="mail" data-size="26" data-stroke="#FFFBE6" data-sw="1.8"></span></div><h3>تحویل فوری</h3><p>کلیدها و لینک‌های دانلود بلافاصله پس از پرداخت به ایمیل شما می‌رسد.</p></div>
+      <div class="glass feat lift"><div class="ico" style="background:#2F6FD0"><span data-icon="lock" data-size="26" data-stroke="#FFFBE6" data-sw="1.8"></span></div><h3>پرداخت امن</h3><p>با روشی که به آن اعتماد دارید پرداخت کنید؛ اطلاعات شما محرمانه می‌ماند.</p></div>
+      <div class="glass feat lift"><div class="ico" style="background:#BCD4F7"><span data-icon="headset" data-size="26" data-stroke="currentColor" data-sw="1.8"></span></div><h3>پشتیبانی دوستانه</h3><p>در فعال‌سازی مشکل دارید؟ یک انسان واقعی فقط یک پیام با شما فاصله دارد.</p></div>
     </div>
   </section>
 
   <section id="blog" class="blog">
     <div class="blog-head">
-      <h2>From the Digaily blog</h2>
-      <p>Buying guides, learning tips and how-tos for your digital life.</p>
+      <h2>از وبلاگ دیجیلی</h2>
+      <p>راهنمای خرید، نکات یادگیری و آموزش‌های کاربردی برای زندگی دیجیتال شما.</p>
     </div>
     <div class="posts">
       <article class="glass card post lift">
-        <div class="tile" style="background:#1E4FB8"><span class="tag">Guides</span><span data-icon="shield" data-size="64" data-stroke="#FFFBE6" data-sw="1.5"></span></div>
+        <div class="tile" style="background:#1E4FB8"><span class="tag">راهنما</span><span data-icon="shield" data-size="64" data-stroke="#FFFBE6" data-sw="1.5"></span></div>
         <div class="body">
-          <div class="pmeta"><span>Oct 28, 2026</span><span aria-hidden="true">&middot;</span><span>5 min read</span></div>
-          <div class="name">How to choose the right antivirus for your devices</div>
-          <p>What to look for in a license, how many devices you need, and why a one-year plan is a good place to start.</p>
-          <a class="more" href="#/blog">Read article <span data-icon="arrow" data-size="16" data-stroke="#1E4FB8" data-sw="2"></span></a>
+          <div class="pmeta"><span>۶ آبان ۱۴۰۵</span><span aria-hidden="true">&middot;</span><span>۵ دقیقه مطالعه</span></div>
+          <div class="name">چطور آنتی‌ویروس مناسب دستگاه‌هایتان را انتخاب کنید</div>
+          <p>به چه چیزی در لایسنس دقت کنید، به چند دستگاه نیاز دارید و چرا طرح یک‌ساله شروع خوبی است.</p>
+          <a class="more" href="#/blog">مطالعه مقاله <span data-icon="arrow" data-size="16" data-stroke="currentColor" data-sw="2"></span></a>
         </div>
       </article>
       <article class="glass card post lift">
-        <div class="tile" style="background:#2F6FD0"><span class="tag">Learning</span><span data-icon="book" data-size="64" data-stroke="#FFFBE6" data-sw="1.5"></span></div>
+        <div class="tile" style="background:#2F6FD0"><span class="tag">یادگیری</span><span data-icon="book" data-size="64" data-stroke="#FFFBE6" data-sw="1.5"></span></div>
         <div class="body">
-          <div class="pmeta"><span>Oct 21, 2026</span><span aria-hidden="true">&middot;</span><span>4 min read</span></div>
-          <div class="name">Learn a language on a busy schedule</div>
-          <p>Short, regular lessons beat long cram sessions. Here is how to fit them into your day.</p>
-          <a class="more" href="#/blog">Read article <span data-icon="arrow" data-size="16" data-stroke="#1E4FB8" data-sw="2"></span></a>
+          <div class="pmeta"><span>۲۹ مهر ۱۴۰۵</span><span aria-hidden="true">&middot;</span><span>۴ دقیقه مطالعه</span></div>
+          <div class="name">یادگیری زبان در برنامه شلوغ</div>
+          <p>درس‌های کوتاه و منظم از جلسات طولانی بهتر است. ببینید چطور در روزتان جا بدهید.</p>
+          <a class="more" href="#/blog">مطالعه مقاله <span data-icon="arrow" data-size="16" data-stroke="currentColor" data-sw="2"></span></a>
         </div>
       </article>
       <article class="glass card post lift">
-        <div class="tile" style="background:#BCD4F7"><span class="tag">Gifts</span><span data-icon="gift" data-size="64" data-stroke="#0F2547" data-sw="1.5"></span></div>
+        <div class="tile" style="background:#BCD4F7"><span class="tag">هدیه</span><span data-icon="gift" data-size="64" data-stroke="currentColor" data-sw="1.5"></span></div>
         <div class="body">
-          <div class="pmeta"><span>Oct 14, 2026</span><span aria-hidden="true">&middot;</span><span>3 min read</span></div>
-          <div class="name">A quick guide to thoughtful digital gifts</div>
-          <p>Gift cards, game keys and courses: how to match the right digital gift to the person.</p>
-          <a class="more" href="#/blog">Read article <span data-icon="arrow" data-size="16" data-stroke="#1E4FB8" data-sw="2"></span></a>
+          <div class="pmeta"><span>۲۲ مهر ۱۴۰۵</span><span aria-hidden="true">&middot;</span><span>۳ دقیقه مطالعه</span></div>
+          <div class="name">راهنمای سریع هدیه‌های دیجیتال حساب‌شده</div>
+          <p>گیفت‌کارت، کلید بازی و دوره: چطور هدیه دیجیتال مناسب هر فرد را انتخاب کنید.</p>
+          <a class="more" href="#/blog">مطالعه مقاله <span data-icon="arrow" data-size="16" data-stroke="currentColor" data-sw="2"></span></a>
         </div>
       </article>
       <article class="glass card post lift">
-        <div class="tile" style="background:#FFD84D"><span class="tag">Help</span><span data-icon="game" data-size="64" data-stroke="#0F2547" data-sw="1.5"></span></div>
+        <div class="tile" style="background:#FFD84D"><span class="tag">کمک</span><span data-icon="game" data-size="64" data-stroke="currentColor" data-sw="1.5"></span></div>
         <div class="body">
-          <div class="pmeta"><span>Oct 7, 2026</span><span aria-hidden="true">&middot;</span><span>3 min read</span></div>
-          <div class="name">Activating your game key, step by step</div>
-          <p>From the email in your inbox to your first level: a simple walkthrough for redeeming keys.</p>
-          <a class="more" href="#/blog">Read article <span data-icon="arrow" data-size="16" data-stroke="#1E4FB8" data-sw="2"></span></a>
+          <div class="pmeta"><span>۱۵ مهر ۱۴۰۵</span><span aria-hidden="true">&middot;</span><span>۳ دقیقه مطالعه</span></div>
+          <div class="name">فعال‌سازی کلید بازی، قدم‌به‌قدم</div>
+          <p>از ایمیل در صندوق ورودی تا اولین مرحله بازی: راهنمای ساده فعال‌سازی کلید.</p>
+          <a class="more" href="#/blog">مطالعه مقاله <span data-icon="arrow" data-size="16" data-stroke="currentColor" data-sw="2"></span></a>
         </div>
       </article>
     </div>
@@ -177,30 +192,30 @@
 
 <!-- CHECKOUT PAGE -->
 <div id="v-checkout" hidden>
-  <div class="crumb"><a href="#/shop/All">Shop</a><span aria-hidden="true">/</span><span>Checkout</span></div>
-  <h1 class="page-title">Checkout</h1>
+  <div class="crumb"><a href="#/shop/All">فروشگاه</a><span aria-hidden="true">/</span><span>پرداخت</span></div>
+  <h1 class="page-title">پرداخت</h1>
   <div class="co" style="margin-top:28px">
     <form class="glass" id="coForm">
-      <h2>Your details</h2>
+      <h2>اطلاعات شما</h2>
       <div class="fields">
-        <label class="field">Full name<input name="name" required autocomplete="name" placeholder="Your name"></label>
-        <label class="field">Email for delivery<input name="email" type="email" required autocomplete="email" placeholder="you@example.com"></label>
+        <label class="field">نام کامل<input name="name" required autocomplete="name" placeholder="نام شما"></label>
+        <label class="field">ایمیل برای دریافت<input name="email" type="email" required autocomplete="email" placeholder="you@example.com"></label>
       </div>
       <fieldset>
-        <legend>Pay with</legend>
+        <legend>روش پرداخت</legend>
         <div class="pays">
-          <label class="pay"><input type="radio" name="pay" value="Card" checked><span><b data-icon="card" data-size="20" data-sw="1.9" style="display:inline-flex"></b>Card</span></label>
-          <label class="pay"><input type="radio" name="pay" value="Wallet"><span><b data-icon="wallet" data-size="20" data-sw="1.9" style="display:inline-flex"></b>Digital wallet</span></label>
-          <label class="pay"><input type="radio" name="pay" value="Bank"><span><b data-icon="bank" data-size="20" data-sw="1.9" style="display:inline-flex"></b>Bank transfer</span></label>
+          <label class="pay"><input type="radio" name="pay" value="Card" checked><span><b data-icon="card" data-size="20" data-sw="1.9" style="display:inline-flex"></b>کارت بانکی</span></label>
+          <label class="pay"><input type="radio" name="pay" value="Wallet"><span><b data-icon="wallet" data-size="20" data-sw="1.9" style="display:inline-flex"></b>کیف پول دیجیتال</span></label>
+          <label class="pay"><input type="radio" name="pay" value="Bank"><span><b data-icon="bank" data-size="20" data-sw="1.9" style="display:inline-flex"></b>انتقال بانکی</span></label>
         </div>
       </fieldset>
-      <p class="hint">This is a demo page. No payment is taken and nothing is sent.</p>
-      <button class="btn primary big" type="submit" id="placeBtn"><span data-icon="lock" data-size="18" data-stroke="#FFFBE6" data-sw="2"></span>Place order</button>
+      <p class="hint">این یک صفحه نمایشی است. هیچ پرداختی انجام و چیزی ارسال نمی‌شود.</p>
+      <button class="btn primary big" type="submit" id="placeBtn"><span data-icon="lock" data-size="18" data-stroke="#FFFBE6" data-sw="2"></span>ثبت سفارش</button>
     </form>
-    <aside class="glass" aria-label="Order summary">
-      <h2>Order summary</h2>
+    <aside class="glass" aria-label="خلاصه سفارش">
+      <h2>خلاصه سفارش</h2>
       <div class="lines" id="coLines" style="overflow:visible"></div>
-      <div class="sum"><div class="tot"><span>Total</span><b id="coTotal">$0.00</b></div><div class="note">Taxes are calculated when you pay. Digital items are delivered by email.</div></div>
+      <div class="sum"><div class="tot"><span>جمع کل</span><b id="coTotal">۰٫۰۰ دلار</b></div><div class="note">مالیات هنگام پرداخت محاسبه می‌شود. کالاهای دیجیتال با ایمیل تحویل داده می‌شوند.</div></div>
     </aside>
   </div>
 </div>
@@ -209,9 +224,9 @@
 <div id="v-done" hidden>
   <div class="glass done-card">
     <div class="ico"><span data-icon="check" data-size="36" data-stroke="#FFFBE6" data-sw="2.2"></span></div>
-    <h1>Order confirmed</h1>
-    <p id="doneMsg">Thank you! Your keys and download links are on their way.</p>
-    <div class="row" style="justify-content:center"><a class="btn primary big" href="#/shop/All">Keep shopping</a></div>
+    <h1>سفارش ثبت شد</h1>
+    <p id="doneMsg">ممنون! کلیدها و لینک‌های دانلود شما در راه است.</p>
+    <div class="row" style="justify-content:center"><a class="btn primary big" href="#/shop/All">ادامه خرید</a></div>
   </div>
 </div>
 
@@ -226,18 +241,18 @@
       <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="11" fill="#FFFBE6"/><path d="M18 9v13M12.5 16.5L18 22l5.5-5.5M10 27h16" fill="none" stroke="#1E4FB8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <span>Digaily</span>
     </div>
-    <p>Digital goods for everyday life, delivered to your inbox.</p>
+    <p>کالاهای دیجیتال برای زندگی روزمره، تحویل در صندوق ایمیل شما.</p>
     <form class="nl" onsubmit="return false">
-      <label><input type="email" aria-label="Email address" placeholder="Your email"></label>
-      <button type="submit">Subscribe</button>
+      <label><input type="email" aria-label="آدرس ایمیل" placeholder="ایمیل شما"></label>
+      <button type="submit">عضویت</button>
     </form>
   </div>
   <div class="f-cols">
-    <div><b>Shop</b><a href="#/shop/Software">Software</a><a href="#/shop/Games">Games</a><a href="#/shop/Gift cards">Gift cards</a><a href="#/shop/Courses">Courses</a></div>
-    <div><b>Help</b><a href="#/">Order status</a><a href="#/">Activation guide</a><a href="#/">Contact us</a></div>
-    <div><b>Company</b><a href="#/">About Digaily</a><a href="#/blog">Blog</a><a href="#/">Terms</a><a href="#/">Privacy</a></div>
+    <div><b>فروشگاه</b><a href="#/shop/Software">نرم‌افزار</a><a href="#/shop/Games">بازی</a><a href="#/shop/Gift cards">گیفت‌کارت</a><a href="#/shop/Courses">دوره‌ها</a></div>
+    <div><b>راهنما</b><a href="#/">پیگیری سفارش</a><a href="#/">راهنمای فعال‌سازی</a><a href="#/">تماس با ما</a></div>
+    <div><b>شرکت</b><a href="#/">درباره دیجیلی</a><a href="#/blog">وبلاگ</a><a href="#/">قوانین</a><a href="#/">حریم خصوصی</a></div>
   </div>
-  <div class="f-end">&copy; 2026 Digaily. All rights reserved.</div>
+  <div class="f-end">&copy; ۱۴۰۵ دیجیلی. تمامی حقوق محفوظ است.</div>
 </footer>
 
 </div>
@@ -246,33 +261,33 @@
 <div class="scrim" id="scrim"></div>
 <aside class="glass drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle" aria-hidden="true">
   <div class="d-head">
-    <div style="display:flex;align-items:center"><h2 id="drawerTitle">Your cart</h2><span class="count" id="dCount">0 items</span></div>
-    <button class="iconbtn" id="closeBtn" type="button" aria-label="Close cart"><span data-icon="x" data-size="18" data-stroke="#0F2547" data-sw="2"></span></button>
+    <div style="display:flex;align-items:center"><h2 id="drawerTitle">سبد خرید شما</h2><span class="count" id="dCount">۰ مورد</span></div>
+    <button class="iconbtn" id="closeBtn" type="button" aria-label="بستن سبد خرید"><span data-icon="x" data-size="18" data-stroke="currentColor" data-sw="2"></span></button>
   </div>
   <div class="lines" id="dLines"></div>
   <div class="sum" id="dSum">
-    <div class="tot"><span>Subtotal</span><b id="dTotal">$0.00</b></div>
-    <div class="note">Taxes are calculated at checkout.</div>
-    <a class="btn primary big full" id="goCheckout" href="#/checkout"><span data-icon="lock" data-size="18" data-stroke="#FFFBE6" data-sw="2"></span>Go to checkout</a>
-    <button class="btn glassy full" id="keepBtn" type="button">Continue shopping</button>
+    <div class="tot"><span>جمع جزء</span><b id="dTotal">۰٫۰۰ دلار</b></div>
+    <div class="note">مالیات هنگام پرداخت محاسبه می‌شود.</div>
+    <a class="btn primary big full" id="goCheckout" href="#/checkout"><span data-icon="lock" data-size="18" data-stroke="#FFFBE6" data-sw="2"></span>رفتن به پرداخت</a>
+    <button class="btn glassy full" id="keepBtn" type="button">ادامه خرید</button>
   </div>
 </aside>
 
 <!-- DOCK: Support / Sign in / About, bottom-left -->
 <div class="dock-wrap" id="dockWrap">
   <section class="glass dk-panel" id="dkPanel" role="dialog" aria-live="polite" aria-labelledby="dkTitle" hidden></section>
-  <nav class="glass dock" id="dock" aria-label="Support, account and about">
-    <button class="dk-trig" id="dkTrig" type="button" aria-label="Open support, sign in and about" aria-expanded="false"><span data-icon="dots" data-size="22" data-sw="0"></span></button>
+  <nav class="glass dock" id="dock" aria-label="پشتیبانی، حساب و درباره ما">
+    <button class="dk-trig" id="dkTrig" type="button" aria-label="باز کردن پشتیبانی، ورود و درباره ما" aria-expanded="false"><span data-icon="dots" data-size="22" data-sw="0"></span></button>
     <div class="dk-items" id="dkItems">
       <span class="dk-pill" id="dkPill" aria-hidden="true"></span>
-      <button class="dk" type="button" data-dk="support" aria-expanded="false" aria-controls="dkPanel"><span data-icon="headset" data-size="20" data-sw="1.9"></span><span class="lbl">Support</span></button>
-      <button class="dk" type="button" data-dk="signin" aria-expanded="false" aria-controls="dkPanel"><span data-icon="user" data-size="20" data-sw="1.9"></span><span class="lbl" id="dkSignLbl">Sign in</span></button>
-      <button class="dk" type="button" data-dk="about" aria-expanded="false" aria-controls="dkPanel"><span data-icon="info" data-size="20" data-sw="1.9"></span><span class="lbl">About</span></button>
+      <button class="dk" type="button" data-dk="support" aria-expanded="false" aria-controls="dkPanel"><span data-icon="headset" data-size="20" data-sw="1.9"></span><span class="lbl">پشتیبانی</span></button>
+      <button class="dk" type="button" data-dk="signin" aria-expanded="false" aria-controls="dkPanel"><span data-icon="user" data-size="20" data-sw="1.9"></span><span class="lbl" id="dkSignLbl">ورود</span></button>
+      <button class="dk" type="button" data-dk="about" aria-expanded="false" aria-controls="dkPanel"><span data-icon="info" data-size="20" data-sw="1.9"></span><span class="lbl">درباره ما</span></button>
     </div>
   </nav>
 </div>
 <div class="sr" aria-live="polite" id="live"></div>
-
+    <script src="~/Site/home.js" defer></script>
 <script>
 </script>
 </body>

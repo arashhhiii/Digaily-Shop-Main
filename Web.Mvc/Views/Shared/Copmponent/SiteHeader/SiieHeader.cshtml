@@ -4,7 +4,7 @@
 
     <div class="hwrap">
         <header class="glass bar">
-            <a class="logo" href="#/" aria-label="Digaily home">
+            <a class="logo" asp-area="" asp-controller="Home" asp-action="Index" aria-label="Digaily home">
                 <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="11" fill="#1E4FB8" /><path d="M18 9v13M12.5 16.5L18 22l5.5-5.5M10 27h16" fill="none" stroke="#FFFBE6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" /></svg>
                 <span>Digaily</span>
             </a>
@@ -20,13 +20,28 @@
                 <a href="#/shop/Courses">Courses</a>
                 <a href="#/bundles">Bundles</a>
                 <a href="#/blog">Blog</a>
-                <a asp-area="" asp-controller="Account" asp-action="RegisterOrLogin">Login</a>
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    <a asp-area="" asp-controller="Account" asp-action="RegisterOrLogin">Login</a>
+                }
+                else
+                {
+                    <a href="#/account">Account Center</a>
+                    <a asp-area="" asp-controller="Account" asp-action="LogOut">Log out</a>
+                }
+                @if (string.Equals(User.FindFirst(System.Security.Claims.ClaimTypes.Email)?.Value, "arashdargi52@gmail.com", StringComparison.OrdinalIgnoreCase))
+                {
+                    <a asp-area="Admin" asp-controller="Home" asp-action="Index">Admin Panel</a>
+                }
+               
             </nav>
             <label class="search">
                 <span data-icon="search" data-size="20" data-stroke="#34476B" data-sw="1.9"></span>
                 <input id="q" type="search" aria-label="Search products" placeholder="Search Digaily" autocomplete="off">
             </label>
-            <a class="catbtn" id="acctBtn" href="#/account" aria-label="Account center" style="padding:0 12px"><span data-icon="user" data-size="20" data-sw="1.9"></span></a>
+            <a class="catbtn" id="acctBtn" href="@(User.Identity?.IsAuthenticated == true ? "#/account" : Url.Action("RegisterOrLogin", "Account"))" aria-label="Account center" style="padding:0 12px"><span data-icon="user" data-size="20" data-sw="1.9"></span></a>
+            <button class="themebtn" id="themeBtn" type="button" aria-label="Toggle dark mode" aria-pressed="false"><span aria-hidden="true">◐</span></button>
+            <button class="langbtn" id="languageToggle" type="button" aria-label="Switch language to Persian">فارسی</button>
             <button class="cartbtn" id="cartBtn" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="drawer" aria-label="Open cart">
                 <span data-icon="cart" data-size="20" data-stroke="#FFFBE6" data-sw="1.9"></span>
                 <span>Cart</span>

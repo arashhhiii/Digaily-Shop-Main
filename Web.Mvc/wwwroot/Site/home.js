@@ -1,38 +1,38 @@
 
 (function(){
   var P=[
-    {id:1,name:'Shield Antivirus',cat:'Software',sub:'Security',type:'Antivirus',meta:'1 year, 3 devices',price:29.99},
-    {id:2,name:'Quest Realm',cat:'Games',sub:'PC',type:'Action & adventure',meta:'Instant game key',price:24.5},
-    {id:3,name:'Streaming Gift Card',cat:'Gift cards',sub:'Entertainment',type:'Streaming',meta:'Card value $25',price:25},
-    {id:4,name:'Spanish for Travelers',cat:'Courses',sub:'Languages',type:'Spanish',meta:'Self-paced lessons',price:34},
-    {id:5,name:'PixelCraft Studio',cat:'Software',sub:'Creative',type:'Photo & design',meta:'Lifetime license',price:59},
-    {id:6,name:'Arcade Pack Vol. 2',cat:'Games',sub:'PC',type:'Puzzle & arcade',meta:'Game bundle',price:18},
-    {id:7,name:'Store Credit Card',cat:'Gift cards',sub:'Shopping',type:'Store credit',meta:'Card value $50',price:50},
-    {id:8,name:'Web Design Basics',cat:'Courses',sub:'Tech',type:'Web design',meta:'Self-paced lessons',price:42},
-    {id:9,name:'SecureLine VPN',cat:'Software',sub:'Security',type:'VPN',meta:'12 months',price:39.99},
-    {id:10,name:'FrameCut Video Editor',cat:'Software',sub:'Creative',type:'Video',meta:'1 year license',price:44},
-    {id:11,name:'Melody Music Pass',cat:'Gift cards',sub:'Entertainment',type:'Music',meta:'Card value $15',price:15},
-    {id:12,name:'French Essentials',cat:'Courses',sub:'Languages',type:'French',meta:'Self-paced lessons',price:34},
-    {id:13,name:'Starlight Racer',cat:'Games',sub:'Console',type:'Racing',meta:'Instant game key',price:29.99},
-    {id:14,name:'Python for Beginners',cat:'Courses',sub:'Tech',type:'Programming',meta:'Self-paced lessons',price:39}
+    {id:1,name:'گوشی هوشمند نوا تکنولایف',cat:'Technolife',sub:'Phones',type:'Smartphones',meta:'حافظه ۲۵۶ گیگابایت، رم ۸ گیگابایت',price:699.99},
+    {id:2,name:'هدست بی‌سیم گیمینگ',cat:'Gaming',sub:'Accessories',type:'Headsets',meta:'صدای فراگیر بی‌سیم',price:89.99},
+    {id:3,name:'تی‌شرت نخی دیجی‌کالا',cat:'Digikala',sub:'Clothing',type:'T-Shirts',meta:'نخ نرم، در اندازه‌های مختلف',price:19.99},
+    {id:4,name:'دانه قهوه اسپرسو',cat:'Food',sub:'Pantry',type:'Coffee',meta:'یک کیلوگرم، تازه‌برشت',price:24.5},
+    {id:5,name:'هدفون بلوتوثی',cat:'Electronics',sub:'Audio',type:'Headphones',meta:'کاهش نویز، همراه با کیس شارژ',price:59.99},
+    {id:6,name:'کنترلر بی‌سیم بازی',cat:'Gaming',sub:'Accessories',type:'Controllers',meta:'سازگار با رایانه و کنسول',price:49.99},
+    {id:7,name:'ساعت هوشمند تکنولایف',cat:'Technolife',sub:'Wearables',type:'Smartwatches',meta:'ردیابی فعالیت، باتری ۵ روزه',price:129.99},
+    {id:8,name:'هودی زیپ‌دار روزمره',cat:'Clothing',sub:'Tops',type:'Hoodies',meta:'آستر گرم، در اندازه‌های مختلف',price:44.99},
+    {id:9,name:'مانیتور کامپیوتر 4K',cat:'Electronics',sub:'Computers',type:'Monitors',meta:'نمایشگر UHD بیست‌وهفت اینچی',price:329.99},
+    {id:10,name:'کتانی سبک دویدن',cat:'Clothing',sub:'Shoes',type:'Sneakers',meta:'رویه مشبک و زیره نرم',price:74.99},
+    {id:11,name:'مجموعه شکلات تلخ',cat:'Food',sub:'Snacks',type:'Chocolate',meta:'مخلوط شکلات با ۷۰٪ کاکائو',price:14.99},
+    {id:12,name:'کوله‌پشتی روزمره دیجی‌کالا',cat:'Digikala',sub:'Accessories',type:'Bags',meta:'ضدآب، ظرفیت ۲۰ لیتر',price:39.99},
+    {id:13,name:'بازی مسابقه‌ای استارلایت',cat:'Gaming',sub:'Games',type:'Racing',meta:'نسخه کنسول',price:39.99},
+    {id:14,name:'روغن زیتون فرابکر',cat:'Food',sub:'Pantry',type:'Olive Oil',meta:'پرس سرد، ۷۵۰ میلی‌لیتر',price:18.99}
   ];
   var INFO={
-    1:['Real-time protection against viruses, ransomware and phishing, without slowing your device down.',['Covers up to 3 devices for 1 year','Real-time malware and ransomware shield','Safe-browsing and phishing alerts','License key delivered by email']],
-    2:['An open-world action adventure full of quests, hidden caves and boss fights. Playable solo from the first minute.',['Instant PC game key','Single-player story campaign','Controller and keyboard support','Redeem in your game launcher']],
-    3:['A flexible gift that lands in an inbox in seconds, so the lucky person can pick what to watch.',['Card value $25','Delivered by email instantly','Easy to forward as a gift','Redeem in the streaming app']],
-    4:['Practical Spanish for hotels, restaurants and getting around. Learn the phrases you will really use on a trip.',['Self-paced video lessons','Travel phrases and pronunciation practice','Learn on phone or computer','Course link delivered by email']],
-    5:['A friendly photo and design studio with layers, filters and retouching tools for everyday creative work.',['Lifetime license','Layers, filters and retouching tools','Export to common image formats','Download link delivered by email']],
-    6:['A second bundle of puzzle and arcade games made for short, satisfying sessions.',['Game bundle with several titles','Instant game key','Pick up and play in minutes','Controller and keyboard support']],
-    7:['A store credit card that works like cash online. A simple gift for anyone.',['Card value $50','Delivered by email instantly','Easy to forward as a gift','Redeem at checkout']],
-    8:['Learn how websites are planned and built, from layout and color to your first finished page.',['Self-paced lessons','Layout, color and typography basics','Hands-on practice projects','Course link delivered by email']],
-    9:['Keep your connection private on public Wi-Fi and while you travel, with one tap to connect.',['12 months of protection','Encrypts your traffic on public Wi-Fi','Many server locations to choose from','Works on phone and laptop']],
-    10:['Trim, join and polish your videos with a clean editor that stays out of your way.',['1 year license','Trim, cut and join clips','Titles, music and simple effects','Download link delivered by email']],
-    11:['A music gift card that goes straight to the inbox, ready to enjoy whenever they like.',['Card value $15','Delivered by email instantly','Easy to forward as a gift','Redeem in the music app']],
-    12:['Everyday French in small daily steps: greetings, shopping, directions and conversation.',['Self-paced lessons','Short daily practice sessions','Listening and speaking exercises','Course link delivered by email']],
-    13:['A fast and friendly racing game with bright tracks, upgrades and head-to-head races.',['Instant console game key','Solo and head-to-head races','Unlock and upgrade cars','Redeem in your console store']],
-    14:['Start coding with Python from zero. Short lessons and small projects build real confidence.',['Self-paced lessons','Variables, loops and functions explained simply','Small projects to practice','Course link delivered by email']]
+    1:['گوشی هوشمند سریع و کاربردی با فضای کافی برای عکس‌ها، برنامه‌ها و سرگرمی.',['حافظه ۲۵۶ گیگابایت و رم ۸ گیگابایت','نمایشگر با وضوح بالا','باتری با دوام یک‌روزه','قاب محافظ همراه محصول']],
+    2:['با هدست بی‌سیم راحتی که برای بازی‌های طولانی ساخته شده، صدای بازی و گفت‌وگو را واضح بشنوید.',['صدای فراگیر','میکروفون جداشدنی','گوشی‌های نرم و راحت','سازگار با رایانه و کنسول']],
+    3:['تی‌شرت نخی نرم و روزمره در اندازه‌ها و رنگ‌های متنوع.',['پارچه نخی و تنفس‌پذیر','قالب راحت و معمولی','موجود در اندازه‌های مختلف','قابل شست‌وشو با ماشین']],
+    4:['دانه‌های قهوه اسپرسو تازه‌برشت با عطر غنی و طعمی متعادل.',['قهوه دانه کامل','برشت متوسط رو به تیره','بسته‌بندی تازه و زیپ‌دار','مناسب دستگاه اسپرسوساز']],
+    5:['هدفون بی‌سیم کوچک برای موسیقی، تماس و استفاده روزمره.',['میکروفون با کاهش نویز','کیس شارژ قابل‌حمل','کنترل لمسی','اتصال بلوتوث']],
+    6:['کنترلر بی‌سیم سریع و دقیق برای بازی روی رایانه یا کنسول.',['طراحی ارگونومیک و راحت','دکمه‌ها و ماشه‌های دقیق','اتصال بی‌سیم','سازگار با رایانه و کنسول']],
+    7:['ساعت هوشمند کاربردی برای پیگیری فعالیت روزانه و دریافت اعلان‌ها.',['ردیابی ضربان قلب و فعالیت','نمایش اعلان‌ها روی مچ','تا ۵ روز دوام باتری','طراحی مقاوم در برابر آب']],
+    8:['هودی زیپ‌دار گرم برای استفاده راحت و روزمره.',['آستر نرم و گرم','زیپ کامل در جلو','کلاه قابل تنظیم','موجود در اندازه‌های مختلف']],
+    9:['مانیتور 4K شفاف برای کار، تماشای فیلم و بازی رایانه‌ای.',['نمایشگر UHD بیست‌وهفت اینچی','رنگ‌های زنده و جزئیات دقیق','پایه با زاویه قابل تنظیم','ورودی HDMI و DisplayPort']],
+    10:['کتانی سبک با پارچه تنفس‌پذیر و زیره نرم برای پیاده‌روی یا دویدن روزانه.',['رویه مشبک و تنفس‌پذیر','کفی نرم و راحت','زیره لاستیکی بادوام','موجود در اندازه‌های مختلف']],
+    11:['مجموعه‌ای از شکلات‌های تلخ خوش‌طعم برای پذیرایی یا میان‌وعده.',['شکلات با ۷۰٪ کاکائو','طعم‌های متنوع','قطعه‌های بسته‌بندی‌شده','تهیه‌شده با کره کاکائو']],
+    12:['کوله‌پشتی کاربردی با فضای کافی برای وسایل روزمره، کار یا مدرسه.',['ظرفیت ۲۰ لیتر','رویه مقاوم در برابر آب','محفظه لپ‌تاپ با لایه محافظ','بندهای شانه قابل تنظیم']],
+    13:['در پیست‌های رنگارنگ مسابقه دهید و در چالش‌های سریع کنسولی رقابت کنید.',['نسخه بازی کنسولی','حالت تک‌نفره و چندنفره','خودروها و پیست‌های قابل بازشدن','مناسب برای سطوح مختلف مهارت']],
+    14:['روغن زیتون فرابکر پرس سرد برای آشپزی، سالاد و سرو کنار غذا.',['بطری ۷۵۰ میلی‌لیتری','تهیه‌شده از زیتون پرس سرد','طعم غنی و میوه‌ای','در جای خشک و خنک نگهداری شود']]
   };
-  var TONE={'Software':['#1E4FB8','#FFFBE6'],'Games':['#FFD84D','#0F2547'],'Gift cards':['#BCD4F7','#0F2547'],'Courses':['#2F6FD0','#FFFBE6']};
+  var TONE={'Technolife':['#1E4FB8','#FFFBE6'],'Digikala':['#BCD4F7','#0F2547'],'Electronics':['#2F6FD0','#FFFBE6'],'Clothing':['#E8B4C8','#0F2547'],'Gaming':['#FFD84D','#0F2547'],'Food':['#D6E8B8','#0F2547']};
   var ICON={
     shield:'<path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/>',
     game:'<rect x="3" y="7" width="18" height="11" rx="4"/><path d="M8 10.5v4M6 12.5h4"/><circle cx="15.5" cy="11.5" r="0.8"/><circle cx="17.5" cy="13.5" r="0.8"/>',
@@ -47,18 +47,18 @@
     key:'<circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3"/>',
     down:'<path d="M12 4v11M7.5 10.5L12 15l4.5-4.5M5 20h14"/>',
     headset:'<path d="M4 14v-2a8 8 0 0116 0v2"/><rect x="3" y="14" width="4" height="6" rx="2"/><rect x="17" y="14" width="4" height="6" rx="2"/>',
-    arrow:'<path d="M5 12h14M13 6l6 6-6 6"/>',check:'<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+    arrow:'<path d="M19 12H5M11 6l-6 6 6 6"/>',check:'<path d="M5 12.5l4.5 4.5L19 7.5"/>',
     card:'<rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 10h18M7 15h4"/>',
     wallet:'<path d="M4 7a2 2 0 012-2h11v4"/><rect x="3" y="7" width="18" height="13" rx="3"/><circle cx="16.5" cy="13.5" r="1"/>',
     bank:'<path d="M3 9l9-5 9 5M5 10v8M10 10v8M14 10v8M19 10v8M3 20h18"/>',
-    left:'<path d="M19 12H5M11 6l-6 6 6 6"/>',
+    left:'<path d="M5 12h14M13 6l6 6-6 6"/>',
     pause:'<path d="M9 5v14M15 5v14"/>',
     play:'<path d="M8 5l11 7-11 7z"/>',
     dots:'<circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/>',
     user:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/>',
     info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/>',
     chev:'<path d="M6 9l6 6 6-6"/>',
-    chevr:'<path d="M9 6l6 6-6 6"/>',
+    chevr:'<path d="M15 6l-6 6 6 6"/>',
     receipt:'<path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/>',
     bell:'<path d="M6 17V11a6 6 0 0112 0v6l1.5 2h-15z"/><path d="M10 21h4"/>',
     copy:'<rect x="8" y="8" width="12" height="12" rx="3"/><path d="M16 8V6a2 2 0 00-2-2H6a2 2 0 00-2 2v8a2 2 0 002 2h2"/>',
@@ -71,8 +71,12 @@
     el.style.display='inline-flex';
     el.innerHTML=svg(el.dataset.icon,+el.dataset.size||20,el.dataset.stroke||'currentColor',el.dataset.sw||1.9);
   });}
-  var catIcon={'All':'grid','Software':'shield','Games':'game','Gift cards':'gift','Courses':'book'};
-  var fmt=function(n){return '$'+n.toFixed(2);};
+  var catIcon={'All':'grid','Technolife':'device','Digikala':'cart','Electronics':'device','Clothing':'gift','Gaming':'game','Food':'card'};
+  var FA={All:'همه',Technolife:'تکنولایف',Digikala:'دیجی‌کالا',Electronics:'لوازم الکترونیکی',Clothing:'پوشاک',Gaming:'بازی و سرگرمی',Food:'مواد غذایی',Phones:'تلفن‌های همراه',Smartphones:'گوشی هوشمند',Accessories:'لوازم جانبی',Headsets:'هدست','T-Shirts':'تی‌شرت',Pantry:'مواد غذایی',Coffee:'قهوه',Audio:'صوتی',Headphones:'هدفون',Controllers:'کنترلر',Wearables:'لوازم پوشیدنی',Smartwatches:'ساعت هوشمند',Tops:'لباس بالاتنه',Hoodies:'هودی',Computers:'رایانه',Monitors:'مانیتور',Shoes:'کفش',Sneakers:'کتانی',Snacks:'تنقلات',Chocolate:'شکلات',Bags:'کیف',Games:'بازی‌ها','Olive Oil':'روغن زیتون'};
+  var locale=window.DigailyLocale;
+  var tr=function(x){return locale?locale.translate(x):(FA[x]||x);};
+  var fa=function(n){var s=String(n);return !locale||locale.language==='fa'?s.replace(/\d/g,function(d){return '۰۱۲۳۴۵۶۷۸۹'[d];}).replace(/\./g,'٫'):s;};
+  var fmt=function(n){return locale&&locale.language==='fa'?fa(Number(n).toFixed(2))+' دلار':'$'+Number(n).toFixed(2);};
   var $=function(id){return document.getElementById(id);};
 
   var cart;
@@ -85,54 +89,55 @@
 
   function count(){var n=0;for(var k in cart)n+=cart[k];return n;}
   function total(){var t=0;P.forEach(function(p){if(cart[p.id])t+=p.price*cart[p.id];});return t;}
-  function itemsText(n){return n===1?'1 item':n+' items';}
+  function itemsText(n){return locale&&locale.language==='en'?n+' item'+(n===1?'':'s'):fa(n)+' مورد';}
 
   /* categories + products */
   function renderCats(){
-    var names=['All','Software','Games','Gift cards','Courses'];
+    var names=['All','Technolife','Digikala','Electronics','Clothing','Gaming','Food'];
     $('cats').innerHTML=names.map(function(n){
       var c=n==='All'?P.length:P.filter(function(p){return p.cat===n;}).length;
-      return '<button type="button" class="glass cat lift" data-cat="'+n+'" aria-pressed="'+(n===cat)+'">'+svg(catIcon[n],20,'currentColor',1.9)+'<span>'+n+'</span><small>'+c+'</small></button>';
+      return '<button type="button" class="glass cat lift" data-cat="'+n+'" aria-pressed="'+(n===cat)+'">'+svg(catIcon[n],20,'currentColor',1.9)+'<span>'+tr(n)+'</span><small>'+fa(c)+'</small></button>';
     }).join('');
   }
   function renderCrumbs(){
     var el=$('crumbs');
     if(cat==='All'&&!sub&&!type){el.hidden=true;el.innerHTML='';return;}
-    var h='<a href="#/shop/All">All products</a>',sep='<span aria-hidden="true">/</span>';
-    if(cat!=='All')h+=sep+(sub?'<a href="'+hf(cat)+'">'+cat+'</a>':'<span class="cur" aria-current="page">'+cat+'</span>');
-    if(sub)h+=sep+(type?'<a href="'+hf(cat,sub)+'">'+sub+'</a>':'<span class="cur" aria-current="page">'+sub+'</span>');
-    if(type)h+=sep+'<span class="cur" aria-current="page">'+type+'</span>';
-    h+='<a class="clear" href="#/shop/All">Clear filter</a>';
+    var h='<a href="#/shop/All">همه محصولات</a>',sep='<span aria-hidden="true">/</span>';
+    if(cat!=='All')h+=sep+(sub?'<a href="'+hf(cat)+'">'+tr(cat)+'</a>':'<span class="cur" aria-current="page">'+tr(cat)+'</span>');
+    if(sub)h+=sep+(type?'<a href="'+hf(cat,sub)+'">'+tr(sub)+'</a>':'<span class="cur" aria-current="page">'+tr(sub)+'</span>');
+    if(type)h+=sep+'<span class="cur" aria-current="page">'+tr(type)+'</span>';
+    h+='<a class="clear" href="#/shop/All">حذف فیلتر</a>';
     el.innerHTML=h;el.hidden=false;
   }
   function cardHTML(p){
     var t=TONE[p.cat], ic=icFor(p.cat);
-    return '<article class="glass card lift"><div class="tile" style="background:'+t[0]+'"><span class="tag">'+p.cat+'</span>'+svg(ic,64,t[1],1.5)+'</div>'+
+    return '<article class="glass card lift"><div class="tile" style="background:'+t[0]+'"><span class="tag">'+tr(p.cat)+'</span>'+svg(ic,64,t[1],1.5)+'</div>'+
       '<div class="body"><div><div class="name">'+p.name+'</div><div class="meta">'+p.meta+'</div></div>'+
       '<div class="buy"><span class="price">'+fmt(p.price)+'</span><div class="acts">'+
-      '<a class="viewbtn" href="#/product/'+p.id+'" aria-label="View '+p.name+'">View</a>'+
-      '<button type="button" class="add" data-add="'+p.id+'" aria-label="Add '+p.name+' to cart">'+svg('plus',16,'#FFFBE6',2.2)+'<span>Add</span></button></div></div></div></article>';
+      '<a class="viewbtn" href="#/product/'+p.id+'" aria-label="مشاهده '+p.name+'">مشاهده</a>'+
+      '<button type="button" class="add" data-add="'+p.id+'" aria-label="افزودن '+p.name+' به سبد خرید">'+svg('plus',16,'#FFFBE6',2.2)+'<span>افزودن</span></button></div></div></div></article>';
   }
   function renderProduct(p){
     var t=TONE[p.cat],info=INFO[p.id]||['',[]];
     var rel=P.filter(function(x){return x.cat===p.cat&&x.id!==p.id;}).slice(0,4);
     $('v-product').innerHTML=
-      '<div class="crumb"><a href="#/shop/All">Shop</a><span aria-hidden="true">/</span><a href="'+hf(p.cat)+'">'+p.cat+'</a><span aria-hidden="true">/</span><span>'+p.name+'</span></div>'+
+      '<div class="crumb"><a href="#/shop/All">فروشگاه</a><span aria-hidden="true">/</span><a href="'+hf(p.cat)+'">'+tr(p.cat)+'</a><span aria-hidden="true">/</span><span>'+p.name+'</span></div>'+
       '<div class="pd"><div class="glass pd-art"><div class="tile" style="background:'+t[0]+'">'+svg(icFor(p.cat),150,t[1],1.3)+'</div></div>'+
-      '<div class="pd-info"><span class="pd-tag">'+p.cat+' &middot; '+p.sub+'</span><h1>'+p.name+'</h1>'+
+      '<div class="pd-info"><span class="pd-tag">'+tr(p.cat)+' &middot; '+tr(p.sub)+'</span><h1>'+p.name+'</h1>'+
       '<div class="meta" style="font-size:16px">'+p.meta+'</div><div class="pd-price">'+fmt(p.price)+'</div>'+
       '<p class="pd-desc">'+info[0]+'</p>'+
       '<ul class="pd-list">'+info[1].map(function(x){return '<li><span class="ck">'+svg('check',16,'#FFFBE6',2.6)+'</span>'+x+'</li>';}).join('')+'</ul>'+
-      '<div class="row"><button type="button" class="btn primary big" data-add="'+p.id+'">'+svg('plus',18,'#FFFBE6',2.2)+'<span>Add to cart</span></button>'+
-      '<a class="btn glassy big" href="'+hf(p.cat)+'">Back to '+p.cat.toLowerCase()+'</a></div>'+
-      '<div class="pd-note"><span class="glass">'+svg('mail',18,'currentColor',1.9)+'Sent to your inbox</span><span class="glass">'+svg('lock',18,'currentColor',1.9)+'Secure checkout</span><span class="glass">'+svg('headset',18,'currentColor',1.9)+'Friendly support</span></div>'+
+      '<div class="row"><button type="button" class="btn primary big" data-add="'+p.id+'">'+svg('plus',18,'#FFFBE6',2.2)+'<span>افزودن به سبد خرید</span></button>'+
+      '<a class="btn glassy big" href="'+hf(p.cat)+'">بازگشت به '+tr(p.cat)+'</a></div>'+
+      '<div class="pd-note"><span class="glass">'+svg('mail',18,'currentColor',1.9)+'ارسال به ایمیل شما</span><span class="glass">'+svg('lock',18,'currentColor',1.9)+'پرداخت امن</span><span class="glass">'+svg('headset',18,'currentColor',1.9)+'پشتیبانی دوستانه</span></div>'+
       '</div></div>'+
-      (rel.length?'<section class="pd-related"><h2>More in '+p.cat+'</h2><div class="grid">'+rel.map(cardHTML).join('')+'</div></section>':'');
+      (rel.length?'<section class="pd-related"><h2>بیشتر در '+tr(p.cat)+'</h2><div class="grid">'+rel.map(cardHTML).join('')+'</div></section>':'');
   }
   function renderGrid(){
     renderCrumbs();
     var q=query.trim().toLowerCase();
-    var list=P.filter(function(p){return (cat==='All'||p.cat===cat)&&(!sub||p.sub===sub)&&(!type||p.type===type)&&(!q||(p.name+' '+p.cat+' '+p.sub+' '+p.type+' '+p.meta).toLowerCase().indexOf(q)>-1);});
+    var searchableText=function(value){return locale?[value,locale.english(value),locale.persian(value)].join(' '):value;};
+    var list=P.filter(function(p){var searchable=[searchableText(p.name),searchableText(p.meta),searchableText(p.cat),searchableText(p.sub),searchableText(p.type)].join(' ').toLowerCase();return (cat==='All'||p.cat===cat)&&(!sub||p.sub===sub)&&(!type||p.type===type)&&(!q||searchable.indexOf(q)>-1);});
     var capped=!showAll&&!q&&list.length>LIMIT;
     var shown=capped?list.slice(0,LIMIT):list;
     $('grid').innerHTML=shown.map(cardHTML).join('');
@@ -141,12 +146,12 @@
     $('moreWrap').hidden=!moreOn;
     if(moreOn){
       $('moreBtn').setAttribute('aria-expanded',showAll?'true':'false');
-      $('moreBtn').innerHTML='<span>'+(showAll?'Show fewer':'View all products ('+list.length+')')+'</span>'+svg('chev',18,'currentColor',2);
+      $('moreBtn').innerHTML='<span>'+(showAll?'نمایش کمتر':'مشاهده همه محصولات ('+fa(list.length)+')')+'</span>'+svg('chev',18,'currentColor',2);
     }
   }
   $('moreBtn').addEventListener('click',function(){
     showAll=!showAll;renderGrid();
-    if(showAll){$('live').textContent='Showing all products.';}
+    if(showAll){$('live').textContent='همه محصولات نمایش داده شد.';}
     else{$('shop').scrollIntoView({behavior:'smooth',block:'start'});}
   });
 
@@ -154,23 +159,23 @@
   function lineHTML(p,qty,editable){
     var t=TONE[p.cat];
     var top='<div class="top"><div><div class="ln">'+p.name+'</div><div class="lm">'+p.meta+'</div></div>'+
-      (editable?'<button type="button" class="iconbtn sm" data-rm="'+p.id+'" aria-label="Remove '+p.name+' from cart">'+svg('x',16,'#34476B',2)+'</button>':'')+'</div>';
+      (editable?'<button type="button" class="iconbtn sm" data-rm="'+p.id+'" aria-label="حذف '+p.name+' از سبد خرید">'+svg('x',16,'currentColor',2)+'</button>':'')+'</div>';
     var bot=editable
-      ?'<div class="bot"><div class="step"><button type="button" data-dec="'+p.id+'" aria-label="Decrease quantity of '+p.name+'">'+svg('minus',16,'#0F2547',2.2)+'</button><span>'+qty+'</span><button type="button" data-inc="'+p.id+'" aria-label="Increase quantity of '+p.name+'">'+svg('plus',16,'#0F2547',2.2)+'</button></div><span class="lt">'+fmt(p.price*qty)+'</span></div>'
-      :'<div class="bot"><span class="lm">Qty '+qty+'</span><span class="lt">'+fmt(p.price*qty)+'</span></div>';
+      ?'<div class="bot"><div class="step"><button type="button" data-dec="'+p.id+'" aria-label="کاهش تعداد '+p.name+'">'+svg('minus',16,'currentColor',2.2)+'</button><span>'+fa(qty)+'</span><button type="button" data-inc="'+p.id+'" aria-label="افزایش تعداد '+p.name+'">'+svg('plus',16,'currentColor',2.2)+'</button></div><span class="lt">'+fmt(p.price*qty)+'</span></div>'
+      :'<div class="bot"><span class="lm">تعداد: '+fa(qty)+'</span><span class="lt">'+fmt(p.price*qty)+'</span></div>';
     return '<div class="line"><div class="th" style="background:'+t[0]+'">'+svg('down',24,t[1],1.8)+'</div><div class="info">'+top+bot+'</div></div>';
   }
   function renderCart(){
     var n=count(), has=n>0;
-    $('badge').textContent=n;
-    $('cartBtn').setAttribute('aria-label','Open cart, '+itemsText(n));
+    $('badge').textContent=fa(n);
+    $('cartBtn').setAttribute('aria-label','باز کردن سبد خرید، '+itemsText(n));
     $('dCount').textContent=itemsText(n);
     $('dTotal').textContent=fmt(total());
     $('coTotal').textContent=fmt(total());
     var d=P.filter(function(p){return cart[p.id];}).map(function(p){return lineHTML(p,cart[p.id],true);}).join('');
-    $('dLines').innerHTML=has?d:'<div class="empty">'+svg('cart',32,'#2F6FD0',1.7)+'<b>Your cart is empty</b><span>Add something from the shelf to get started.</span></div>';
+    $('dLines').innerHTML=has?d:'<div class="empty">'+svg('cart',32,'#2F6FD0',1.7)+'<b>سبد خرید شما خالی است</b><span>برای شروع، محصولی به سبد اضافه کنید.</span></div>';
     $('dSum').style.display=has?'':'none';
-    $('coLines').innerHTML=has?P.filter(function(p){return cart[p.id];}).map(function(p){return lineHTML(p,cart[p.id],false);}).join(''):'<div class="empty"><b>Your cart is empty</b><span>Add something before checking out.</span><a class="btn primary" href="#/shop/All">Browse products</a></div>';
+    $('coLines').innerHTML=has?P.filter(function(p){return cart[p.id];}).map(function(p){return lineHTML(p,cart[p.id],false);}).join(''):'<div class="empty"><b>سبد خرید شما خالی است</b><span>پیش از پرداخت، محصولی اضافه کنید.</span><a class="btn primary" href="#/shop/All">مشاهده محصولات</a></div>';
     $('placeBtn').disabled=!has;
     $('placeBtn').style.opacity=has?'':'.5';
     save();
@@ -217,10 +222,10 @@
       var id=b.dataset.add;cart[id]=(cart[id]||0)+1;renderCart();
       var bd=$('badge');bd.classList.remove('bump');void bd.offsetWidth;bd.classList.add('bump');
       var lbl=b.querySelector('span');
-      if(lbl){var old=lbl.textContent;b.classList.add('done');lbl.textContent='Added';setTimeout(function(){b.classList.remove('done');lbl.textContent=old;},1100);}
-      else{b.textContent='Added';}
+      if(lbl){var old=lbl.textContent;b.classList.add('done');lbl.textContent='اضافه شد';setTimeout(function(){b.classList.remove('done');lbl.textContent=old;},1100);}
+      else{b.textContent='اضافه شد';}
       var p=P.filter(function(x){return String(x.id)===id;})[0];
-      $('live').textContent=p.name+' added to cart. '+itemsText(count())+' in cart.';
+      $('live').textContent=p.name+' به سبد خرید اضافه شد. '+itemsText(count())+' در سبد خرید.';
     }else if(b.dataset.inc){cart[b.dataset.inc]+=1;renderCart();}
     else if(b.dataset.dec){cart[b.dataset.dec]=Math.max(1,cart[b.dataset.dec]-1);renderCart();}
     else if(b.dataset.rm){delete cart[b.dataset.rm];renderCart();}
@@ -237,7 +242,7 @@
     e.preventDefault();
     if(!count())return;
     var email=this.elements.email.value, name=this.elements.name.value.split(' ')[0];
-    $('doneMsg').textContent='Thank you, '+name+'! Your keys and download links are on their way to '+email+'.';
+    $('doneMsg').textContent='ممنون، '+name+'! کلیدها و لینک‌های دانلود به \u2066'+email+'\u2069 ارسال می‌شود.';
     if(window.__addOrder)window.__addOrder(cart);
     cart={};renderCart();this.reset();
     location.hash='#/done';
@@ -255,7 +260,7 @@
       if(!prod){location.hash='#/shop/All';return;}
       renderProduct(prod);
     }
-    ['home','product','checkout','done','account'].forEach(function(v){$('v-'+v).hidden=v!==view;});
+    ['home','product','checkout','done','account'].forEach(function(v){var el=$('v-'+v);if(el)el.hidden=v!==view;});
     if(view==='home'){
       if(parts[0]==='shop'){
         var c=parts[1]||'All';
@@ -269,12 +274,13 @@
       else{window.scrollTo(0,0);}
     }else{window.scrollTo(0,0);}
     if(view==='account')renderAccount(parts[1]||'overview');
-    document.title=(view==='account'?'Account center':view==='checkout'?'Checkout':view==='done'?'Order confirmed':prod?prod.name:'Digaily')+' | Digaily';
+    var title=(view==='account'?'Account Center':view==='checkout'?'Checkout':view==='done'?'Order confirmed':prod?tr(prod.name):'Digaily')+' | Digaily';
+    document.title=locale?locale.translate(title):title;
   }
   window.addEventListener('hashchange',route);
 
   /* header categories menu: category > subcategory > type */
-  var megaCat='Software', mega=$('mega'), catBtn=$('catBtn');
+  var megaCat='Technolife', mega=$('mega'), catBtn=$('catBtn');
   function megaTree(){
     var t={};
     P.forEach(function(p){
@@ -284,18 +290,18 @@
     return t;
   }
   function renderMegaL(){
-    $('megaL').innerHTML=['Software','Games','Gift cards','Courses'].map(function(n){
-      return '<li><button type="button" data-mc="'+n+'" aria-current="'+(n===megaCat)+'">'+svg(catIcon[n],20,'currentColor',1.9)+'<span style="flex:1">'+n+'</span>'+svg('chevr',16,'currentColor',2)+'</button></li>';
+    $('megaL').innerHTML=['Technolife','Digikala','Electronics','Clothing','Gaming','Food'].map(function(n){
+      return '<li><button type="button" data-mc="'+n+'" aria-current="'+(n===megaCat)+'">'+svg(catIcon[n],20,'currentColor',1.9)+'<span style="flex:1">'+tr(n)+'</span>'+svg('chevr',16,'currentColor',2)+'</button></li>';
     }).join('');
   }
   function renderMegaR(){
     var subs=megaTree()[megaCat]||{};
     var total=P.filter(function(p){return p.cat===megaCat;}).length;
-    $('megaR').innerHTML='<div class="mg-head"><h3>'+megaCat+'</h3><a class="mg-all" href="'+hf(megaCat)+'">Shop all '+megaCat.toLowerCase()+' ('+total+')</a></div>'+
+    $('megaR').innerHTML='<div class="mg-head"><h3>'+tr(megaCat)+'</h3><a class="mg-all" href="'+hf(megaCat)+'">مشاهده همه ('+fa(total)+')</a></div>'+
       '<div class="mg-cols">'+Object.keys(subs).map(function(s){
         var leaves=subs[s],sc=0;Object.keys(leaves).forEach(function(k){sc+=leaves[k];});
-        return '<div class="mg-col"><a class="mg-sub" href="'+hf(megaCat,s)+'"><span>'+s+'</span><small>'+sc+'</small></a>'+
-          Object.keys(leaves).map(function(l){return '<a class="mg-leaf" href="'+hf(megaCat,s,l)+'"><span>'+l+'</span><small>'+leaves[l]+'</small></a>';}).join('')+'</div>';
+        return '<div class="mg-col"><a class="mg-sub" href="'+hf(megaCat,s)+'"><span>'+tr(s)+'</span><small>'+fa(sc)+'</small></a>'+
+          Object.keys(leaves).map(function(l){return '<a class="mg-leaf" href="'+hf(megaCat,s,l)+'"><span>'+tr(l)+'</span><small>'+fa(leaves[l])+'</small></a>';}).join('')+'</div>';
       }).join('')+'</div>';
   }
   function setMegaCat(n){
@@ -314,34 +320,34 @@
 
   /* suggested-products slider */
   var SL=[
-    {id:1,line:'Stay protected on every device.'},
-    {id:2,line:'Your next adventure, unlocked instantly.'},
-    {id:3,line:'The easy gift that always fits.'},
-    {id:4,line:'Learn at your own pace, anywhere.'},
-    {id:5,line:'Edit, design and create with one lifetime license.'},
-    {id:6,line:'Fresh games for every mood.'}
+    {id:1,line:'گوشی قدرتمندی برای کارهای روزمره‌تان.'},
+    {id:2,line:'هر جزئیات بازی را با صدایی شفاف بشنوید.'},
+    {id:3,line:'یک تی‌شرت نخی راحت برای هر روز.'},
+    {id:4,line:'صبح خود را با قهوه‌ای تازه‌برشت آغاز کنید.'},
+    {id:5,line:'موسیقی و تماس‌هایتان را همه‌جا همراه داشته باشید.'},
+    {id:6,line:'برای مسابقه بعدی کنترل بازی را به دست بگیرید.'}
   ];
   var si=0,tm=null,hovering=false,
       playing=!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
-  function icFor(c){return c==='Software'?'shield':c==='Games'?'game':c==='Gift cards'?'gift':'book';}
+  function icFor(c){return c==='Gaming'?'game':c==='Electronics'||c==='Technolife'?'device':c==='Digikala'?'cart':c==='Food'?'card':'gift';}
   function buildSlider(){
     $('slTrack').innerHTML=SL.map(function(s,i){
       var p=P.filter(function(x){return x.id===s.id;})[0],t=TONE[p.cat];
-      return '<div class="slide" role="group" aria-roledescription="slide" aria-label="'+(i+1)+' of '+SL.length+'">'+
+      return '<div class="slide" role="group" aria-roledescription="slide" aria-label="اسلاید '+fa(i+1)+' از '+fa(SL.length)+'">'+
         '<div class="sl-art" style="background:'+t[0]+'" aria-hidden="true">'+svg(icFor(p.cat),240,t[1],1.2)+'</div>'+
-        '<div class="sl-text glass"><span class="sl-tag">'+p.cat+'</span><h2>'+p.name+'</h2><p>'+s.line+' '+p.meta+'.</p>'+
+        '<div class="sl-text glass"><span class="sl-tag">'+tr(p.cat)+'</span><h2>'+p.name+'</h2><p>'+s.line+' '+p.meta+'.</p>'+
         '<div class="row" style="align-items:center"><span class="price">'+fmt(p.price)+'</span>'+
-        '<button type="button" class="btn primary" data-add="'+p.id+'">'+svg('plus',16,'#FFFBE6',2.2)+'<span>Add to cart</span></button>'+
-        '<a class="btn glassy" href="#/shop/'+p.cat+'">Browse '+p.cat.toLowerCase()+'</a></div></div></div>';
+        '<button type="button" class="btn primary" data-add="'+p.id+'">'+svg('plus',16,'#FFFBE6',2.2)+'<span>افزودن به سبد خرید</span></button>'+
+        '<a class="btn glassy" href="#/shop/'+p.cat+'">مشاهده '+tr(p.cat)+'</a></div></div></div>';
     }).join('');
     $('slDots').innerHTML=SL.map(function(s,i){
-      return '<button type="button" class="dot" data-slide="'+i+'" aria-label="Go to slide '+(i+1)+'"><i></i></button>';
+      return '<button type="button" class="dot" data-slide="'+i+'" aria-label="رفتن به اسلاید '+fa(i+1)+'"><i></i></button>';
     }).join('');
     goSlide(0);setPlayIcon();tick();
   }
   function goSlide(n){
     si=(n+SL.length)%SL.length;
-    $('slTrack').style.transform='translateX(-'+(si*100)+'%)';
+    $('slTrack').style.transform='translateX('+(si*100)+'%)';
     Array.prototype.forEach.call($('slTrack').children,function(el,i){el.inert=i!==si;el.setAttribute('aria-hidden',i!==si?'true':'false');});
     Array.prototype.forEach.call($('slDots').children,function(el,i){el.setAttribute('aria-current',i===si?'true':'false');});
   }
@@ -350,8 +356,8 @@
     if(playing&&!hovering){tm=setInterval(function(){goSlide(si+1);},5000);}
   }
   function setPlayIcon(){
-    $('slPlay').innerHTML=svg(playing?'pause':'play',18,'#0F2547',2);
-    $('slPlay').setAttribute('aria-label',playing?'Pause slideshow':'Play slideshow');
+    $('slPlay').innerHTML=svg(playing?'pause':'play',18,'currentColor',2);
+    $('slPlay').setAttribute('aria-label',playing?'توقف نمایش':'پخش نمایش');
   }
   $('slPrev').addEventListener('click',function(){goSlide(si-1);tick();});
   $('slNext').addEventListener('click',function(){goSlide(si+1);tick();});
@@ -366,24 +372,24 @@
   sl.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
   sl.addEventListener('touchend',function(e){
     if(sx===null)return;var dx=e.changedTouches[0].clientX-sx;sx=null;
-    if(Math.abs(dx)>50){goSlide(si+(dx<0?1:-1));tick();}
+    if(Math.abs(dx)>50){goSlide(si+(dx>0?1:-1));tick();}
   });
 
   /* bottom-left dock: support / sign in / about */
   (function(){
     var dock=$('dock'),panel=$('dkPanel'),pill=$('dkPill'),items=$('dkItems'),trig=$('dkTrig'),open=null,user=null,hov=false,pin=false,kbd=false,t=null;
     try{user=localStorage.getItem('digaily-user');}catch(e){}
-    var X='<button class="iconbtn sm dk-x" type="button" data-close aria-label="Close panel"><span data-icon="x" data-size="18" data-stroke="#0F2547" data-sw="2"></span></button>';
-    function lbl(){$('dkSignLbl').textContent=user?user.split('@')[0]:'Sign in';place();if(window.__acRefresh)window.__acRefresh();}
+    var X='<button class="iconbtn sm dk-x" type="button" data-close aria-label="بستن پنل"><span data-icon="x" data-size="18" data-stroke="#0F2547" data-sw="2"></span></button>';
+    function lbl(){$('dkSignLbl').textContent=user?user.split('@')[0]:'ورود';place();if(window.__acRefresh)window.__acRefresh();}
     var views={
-      support:function(){return X+'<h2 id="dkTitle">Support</h2><p>Stuck on an activation or an order? A real person will help.</p>'+
-        '<div class="dk-links"><a href="#/"><span data-icon="key" data-size="20" data-stroke="#1E4FB8" data-sw="1.9"></span>Activation guide</a><a href="#/"><span data-icon="mail" data-size="20" data-stroke="#1E4FB8" data-sw="1.9"></span>Order status</a></div>'+
-        '<form id="dkSup" novalidate><label class="field">Your email<input type="email" name="e" autocomplete="email" placeholder="you@example.com"></label><label class="field">How can we help?<textarea name="m" placeholder="Tell us what happened"></textarea></label><button class="btn primary full" type="submit">Send message</button><div class="dk-msg" id="dkMsg"></div></form>';},
+      support:function(){return X+'<h2 id="dkTitle">پشتیبانی</h2><p>در فعال‌سازی یا سفارش مشکل دارید؟ یک انسان واقعی کمک می‌کند.</p>'+
+        '<div class="dk-links"><a href="#/"><span data-icon="key" data-size="20" data-stroke="#1E4FB8" data-sw="1.9"></span>راهنمای فعال‌سازی</a><a href="#/"><span data-icon="mail" data-size="20" data-stroke="#1E4FB8" data-sw="1.9"></span>پیگیری سفارش</a></div>'+
+        '<form id="dkSup" novalidate><label class="field">ایمیل شما<input type="email" name="e" autocomplete="email" placeholder="you@example.com"></label><label class="field">چطور می‌توانیم کمک کنیم؟<textarea name="m" placeholder="بگویید چه اتفاقی افتاده"></textarea></label><button class="btn primary full" type="submit">ارسال پیام</button><div class="dk-msg" id="dkMsg"></div></form>';},
       signin:function(){
-        if(user)return X+'<h2 id="dkTitle">Your account</h2><p>Signed in as <b>'+user.replace(/[<>&"]/g,'')+'</b>.</p><a class="btn primary full" href="#/account"><span data-icon="user" data-size="18" data-stroke="#FFFBE6" data-sw="2"></span>Open account center</a><button class="btn glassy full" type="button" id="dkOut">Sign out</button>';
-        return X+'<h2 id="dkTitle">Sign in</h2><p>Welcome back. Your orders and license keys are waiting.</p>'+
-        '<form id="dkSign" novalidate><label class="field">Email<input type="email" name="e" autocomplete="email" placeholder="you@example.com"></label><label class="field">Password<input type="password" name="p" autocomplete="current-password" placeholder="Your password"></label><button class="btn primary full" type="submit">Sign in</button><div class="dk-msg" id="dkMsg"></div></form>';},
-      about:function(){return X+'<h2 id="dkTitle">About Digaily</h2><p>Digaily sells digital goods for everyday life: software, games, gift cards and courses. Keys and downloads land in your inbox the moment you check out.</p><div class="dk-links"><a href="#/blog"><span data-icon="book" data-size="20" data-stroke="#1E4FB8" data-sw="1.9"></span>Read the blog</a><a href="#/shop/All"><span data-icon="grid" data-size="20" data-stroke="#1E4FB8" data-sw="1.9"></span>Browse the shop</a></div>';}
+        if(user)return X+'<h2 id="dkTitle">حساب شما</h2><p>وارد شده با <b dir="ltr">'+user.replace(/[<>&"]/g,'')+'</b></p><a class="btn primary full" href="#/account"><span data-icon="user" data-size="18" data-stroke="#FFFBE6" data-sw="2"></span>مرکز حساب کاربری</a><button class="btn glassy full" type="button" id="dkOut">خروج</button>';
+        return X+'<h2 id="dkTitle">ورود</h2><p>خوش آمدید. برای ورود یا ساخت حساب به صفحه حساب کاربری بروید.</p>'+
+        '<a class="btn primary full" href="/register">Sign in</a><a class="btn glassy full" href="/register#signup">Create an account</a>';},
+      about:function(){return X+'<h2 id="dkTitle">درباره دیجیلی</h2><p>دیجیلی کالاهای دیجیتال زندگی روزمره را می‌فروشد: نرم‌افزار، بازی، گیفت‌کارت و دوره. کلیدها و لینک‌های دانلود لحظه پرداخت به ایمیل شما می‌رسد.</p><div class="dk-links"><a href="#/blog"><span data-icon="book" data-size="20" data-stroke="#1E4FB8" data-sw="1.9"></span>خواندن وبلاگ</a><a href="#/shop/All"><span data-icon="grid" data-size="20" data-stroke="#1E4FB8" data-sw="1.9"></span>مرور فروشگاه</a></div>';}
     };
     function fit(){items.style.maxWidth=dock.classList.contains('x')?items.scrollWidth+'px':'0px';}
     function sync(){
@@ -422,9 +428,9 @@
     });
     panel.addEventListener('submit',function(e){
       e.preventDefault();var f=e.target,m=$('dkMsg'),em=f.e.value.trim(),ok=/^\S+@\S+\.\S+$/.test(em);
-      if(!ok){m.textContent='Please enter a valid email address.';f.e.focus();return;}
-      if(f.id==='dkSup'){if(!f.m.value.trim()){m.textContent='Please add a short message.';f.m.focus();return;}m.textContent='Thanks! We will reply to '+em+' soon.';f.reset();}
-      else{if(!f.p.value){m.textContent='Please enter your password.';f.p.focus();return;}
+      if(!ok){m.textContent='لطفاً یک ایمیل معتبر وارد کنید.';f.e.focus();return;}
+      if(f.id==='dkSup'){if(!f.m.value.trim()){m.textContent='لطفاً یک پیام کوتاه بنویسید.';f.m.focus();return;}m.textContent='ممنون! به‌زودی به \u2066'+em+'\u2069 پاسخ می‌دهیم.';f.reset();}
+      else{if(!f.p.value){m.textContent='لطفاً رمز عبور را وارد کنید.';f.p.focus();return;}
         user=em;try{localStorage.setItem('digaily-user',em);}catch(x){}lbl();show('signin');}
     });
     document.addEventListener('keydown',function(e){if(e.key==='Escape'&&(open||dock.classList.contains('x'))){var b=open&&dock.querySelector('[data-dk="'+open+'"]');pin=false;show(null);b&&b.focus();}});
@@ -478,14 +484,14 @@
   var TAB={
     overview:function(u,p){
       var os=orders(),spent=0,keys=0;os.forEach(function(o){spent+=oTotal(o);keys+=Object.keys(o.items).length;});
-      return '<div class="glass-dark ac-welcome"><div><h2>Welcome back, '+esc(p.name.split(' ')[0])+'</h2><p>Your keys and download links are always one click away. Member since '+esc(p.since)+'.</p></div><a class="btn cream big" href="#/account/licenses">Open my keys '+svg('arrow',18,'#0F2547',2)+'</a></div>'+
+      return '<div class="glass-dark ac-welcome"><div><h2>Welcome back, '+esc(p.name.split(' ')[0])+'</h2><p>Your keys and download links are always one click away. Member since '+esc(p.since)+'.</p></div><a class="btn cream big" href="#/account/licenses">Open my keys '+svg('arrow',18,'currentColor',2)+'</a></div>'+
         '<div class="stats"><div class="stat">'+ico('receipt','#1E4FB8','#FFFBE6')+'<b>'+os.length+'</b><span>Orders placed</span></div><div class="stat">'+ico('key','#2F6FD0','#FFFBE6')+'<b>'+keys+'</b><span>Active licenses</span></div><div class="stat">'+ico('wallet','#FFD84D','#0F2547')+'<b>'+fmt(spent)+'</b><span>Total spent</span></div><div class="stat">'+ico('cart','#BCD4F7','#0F2547')+'<b>'+count()+'</b><span>Items in cart</span></div></div>'+
         '<div><h3>Recent orders</h3><div class="ord-lines" style="margin-top:12px">'+os.slice(0,3).map(function(o){return ordHTML(o,false);}).join('')+'</div></div>'+
         '<div class="quick"><a class="glass lift" href="#/account/licenses">'+ico('down','#1E4FB8','#FFFBE6',20)+'Download my purchases</a><a class="glass lift" href="#/account/profile">'+ico('user','#2F6FD0','#FFFBE6',20)+'Update my profile</a><a class="glass lift" href="#/account/security">'+ico('lock','#BCD4F7','#0F2547',20)+'Secure my account</a></div>';
     },
     orders:function(){
       var os=orders();
-      return '<div><h2>Orders</h2><p class="ac-sub">Everything you have bought, newest first.</p></div>'+(os.length?'<div class="ord-lines">'+os.map(function(o){return ordHTML(o,true);}).join('')+'</div>':'<div class="empty"><b>No orders yet</b><span>Your purchases will show up here.</span><a class="btn primary" href="#/shop/All">Browse products</a></div>');
+      return '<div><h2>Orders</h2><p class="ac-sub">Everything you have bought, newest first.</p></div>'+(os.length?'<div class="ord-lines">'+os.map(function(o){return ordHTML(o,true);}).join('')+'</div>':'<div class="empty"><b>No orders yet</b><span>Your purchases will show up here.</span><a class="btn primary" href="#/shop/All">مشاهده محصولات</a></div>');
     },
     licenses:function(){
       var rows=[];
@@ -518,7 +524,7 @@
     if(!TAB[tab])tab='overview';curTab=tab;
     var u=getUser(),head='<div class="crumb"><a href="#/">Home</a><span aria-hidden="true">/</span><span>Account center</span></div><h1 class="page-title">Account center</h1>';
     if(!u){
-      vA.innerHTML=head+'<section class="glass ac-gate"><div class="ico" style="background:#1E4FB8">'+svg('user',28,'#FFFBE6',1.8)+'</div><div><h2 style="font-size:28px">Sign in to your account</h2><p class="ac-sub">See your orders, license keys and downloads in one place.</p></div><form id="acGate" novalidate>'+fieldH('Email','e','email','','autocomplete="email" placeholder="you@example.com"')+fieldH('Password','p','password','','autocomplete="current-password" placeholder="Your password"')+'<button class="btn primary big full" type="submit">Sign in</button><div class="ac-msg" id="acMsg" role="status"></div></form><p class="hint">Demo store: any email and password will work.</p></section>';
+      vA.innerHTML=head+'<section class="glass ac-gate"><div class="ico" style="background:#1E4FB8">'+svg('user',28,'#FFFBE6',1.8)+'</div><div><h2 style="font-size:28px">ورود به حساب کاربری</h2><p class="ac-sub">See your orders, license keys and downloads in one place.</p></div><form id="acGate" novalidate>'+fieldH('Email','e','email','','autocomplete="email" placeholder="you@example.com"')+fieldH('Password','p','password','','autocomplete="current-password" placeholder="Your password"')+'<button class="btn primary big full" type="submit">Sign in</button><div class="ac-msg" id="acMsg" role="status"></div></form><p class="hint">Demo store: any email and password will work.</p></section>';
       return;
     }
     var p=prof(),ini=p.name.split(/\s+/).map(function(w){return w[0]||'';}).join('').slice(0,2).toUpperCase();
@@ -542,12 +548,12 @@
   vA.addEventListener('submit',function(e){
     e.preventDefault();var f=e.target,m=$('acMsg'),re=/^\S+@\S+\.\S+$/;
     if(f.id==='acGate'){
-      if(!re.test(f.e.value.trim())){say('Please enter a valid email address.',true);f.e.focus();return;}
-      if(!f.p.value){say('Please enter your password.',true);f.p.focus();return;}
+      if(!re.test(f.e.value.trim())){say('لطفاً یک ایمیل معتبر وارد کنید.',true);f.e.focus();return;}
+      if(!f.p.value){say('لطفاً رمز عبور را وارد کنید.',true);f.p.focus();return;}
       setUser(f.e.value.trim());
     }else if(f.id==='acProfile'){
       if(!f.name.value.trim()){say('Please enter your name.',true);f.name.focus();return;}
-      if(!re.test(f.email.value.trim())){say('Please enter a valid email address.',true);f.email.focus();return;}
+      if(!re.test(f.email.value.trim())){say('لطفاً یک ایمیل معتبر وارد کنید.',true);f.email.focus();return;}
       ss(AK.p,{name:f.name.value.trim(),phone:f.phone.value.trim(),country:f.country.value,since:prof().since});
       if(f.email.value.trim()!==getUser())setUser(f.email.value.trim());else renderAccount('profile');
       say('Profile saved.');
@@ -559,5 +565,88 @@
     }
   });
 
-  icons();buildSlider();renderCats();renderGrid();renderCart();route();
+
+  /* ===== theme toggle ===== */
+  (function(){
+    var root=document.documentElement,btn=$('themeBtn');
+    function apply(t,persist){
+      root.setAttribute('data-theme',t);
+      btn.setAttribute('aria-pressed',t==='dark'?'true':'false');
+      btn.setAttribute('aria-label',t==='dark'?'تغییر به حالت روشن':'تغییر به حالت تاریک');
+      var m=document.querySelector('meta[name=theme-color]');if(m)m.content=t==='dark'?'#0A1224':'#FFF2C2';
+      if(persist){try{localStorage.setItem('digaily-theme',t);}catch(e){}}
+    }
+    apply(root.getAttribute('data-theme')||'light',false);
+    btn.addEventListener('click',function(){
+      var t=root.getAttribute('data-theme')==='dark'?'light':'dark';
+      root.classList.add('theme-anim');apply(t,true);
+      setTimeout(function(){root.classList.remove('theme-anim');},450);
+      $('live').textContent=t==='dark'?'حالت تاریک فعال شد.':'حالت روشن فعال شد.';
+    });
+    var mq=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)');
+    if(mq&&mq.addEventListener)mq.addEventListener('change',function(e){var s=null;try{s=localStorage.getItem('digaily-theme');}catch(x){}if(!s)apply(e.matches?'dark':'light',false);});
+  })();
+
+  /* ===== showcase: products -> details -> related ===== */
+  var RT=document.documentElement.dir==='rtl'?1:-1,SXF=[1,2,3,4,5,9,13,14],SXS=['محصولات','جزئیات','محصولات مرتبط'],sxi=0,sxp=1;
+  function sxCard(p){
+    var t=TONE[p.cat];
+    return '<article class="glass card lift sx-card'+(p.id===sxp?' sel':'')+'"><div class="tile" style="background:'+t[0]+'"><span class="tag">'+tr(p.cat)+'</span>'+svg(icFor(p.cat),56,t[1],1.5)+'</div>'+
+      '<div class="body"><div><div class="name">'+p.name+'</div><div class="meta">'+p.meta+'</div></div><div class="buy"><span class="price">'+fmt(p.price)+'</span><div class="acts">'+
+      '<button type="button" class="viewbtn" data-pick="'+p.id+'" aria-label="جزئیات '+p.name+'">جزئیات</button>'+
+      '<button type="button" class="add" data-add="'+p.id+'" aria-label="افزودن '+p.name+' به سبد خرید">'+svg('plus',16,'#FFFBE6',2.2)+'<span>افزودن</span></button></div></div></div></article>';
+  }
+  function renderSx(){
+    var p=pOf(sxp),t=TONE[p.cat],info=INFO[p.id],rel=P.filter(function(x){return x.cat===p.cat&&x.id!==p.id;});
+    P.forEach(function(x){if(x.cat!==p.cat&&x.id!==p.id&&rel.length<4)rel.push(x);});
+    $('sxP0').innerHTML='<div class="sx-grid">'+SXF.map(function(id){return sxCard(pOf(id));}).join('')+'</div>';
+    $('sxP1').innerHTML='<div class="sx-det"><div class="sx-art" style="background:'+t[0]+'">'+svg(icFor(p.cat),150,t[1],1.3)+'</div><div class="sx-info"><span class="pd-tag">'+tr(p.cat)+' &middot; '+tr(p.sub)+'</span><h3>'+p.name+'</h3><div class="meta">'+p.meta+'</div><div class="pd-price">'+fmt(p.price)+'</div><p class="pd-desc">'+info[0]+'</p>'+
+      '<ul class="pd-list">'+info[1].map(function(x){return '<li><span class="ck">'+svg('check',16,'#FFFBE6',2.6)+'</span>'+x+'</li>';}).join('')+'</ul>'+
+      '<div class="row"><button type="button" class="btn primary" data-add="'+p.id+'">'+svg('plus',18,'#FFFBE6',2.2)+'<span>افزودن به سبد خرید</span></button><button type="button" class="btn glassy" data-sx="2">محصولات مرتبط</button></div></div></div>';
+    $('sxP2').innerHTML='<h3 class="sx-h">مرتبط با «'+p.name+'»</h3><div class="sx-grid">'+rel.slice(0,4).map(sxCard).join('')+'</div>';
+    $('sxSteps').innerHTML=SXS.map(function(s,i){return '<button type="button" data-sx="'+i+'"'+(i===sxi?' aria-current="step"':'')+'><b>'+fa(i+1)+'</b><span>'+s+'</span></button>';}).join('');
+  }
+  function goSx(n){
+    sxi=Math.max(0,Math.min(2,n));
+    $('sxTrack').style.transform='translateX('+(RT*sxi*100)+'%)';
+    [0,1,2].forEach(function(i){var el=$('sxP'+i);el.inert=i!==sxi;el.setAttribute('aria-hidden',i!==sxi?'true':'false');});
+    Array.prototype.forEach.call($('sxSteps').children,function(el,i){if(i===sxi)el.setAttribute('aria-current','step');else el.removeAttribute('aria-current');});
+    $('sxPrev').disabled=sxi===0;$('sxNext').disabled=sxi===2;
+    $('sxView').style.height=$('sxP'+sxi).offsetHeight+'px';
+  }
+  function buildShowcase(){renderSx();icons($('showcase'));goSx(0);}
+  $('showcase').addEventListener('click',function(e){
+    var k=e.target.closest('[data-pick]');
+    if(k){sxp=+k.dataset.pick;renderSx();goSx(1);return;}
+    var s=e.target.closest('[data-sx]');if(s)goSx(+s.dataset.sx);
+  });
+  $('sxPrev').addEventListener('click',function(){goSx(sxi-1);});
+  $('sxNext').addEventListener('click',function(){goSx(sxi+1);});
+  $('showcase').addEventListener('keydown',function(e){
+    if(/INPUT|TEXTAREA|SELECT/.test(e.target.tagName))return;
+    var nx=RT>0?'ArrowLeft':'ArrowRight',pv=RT>0?'ArrowRight':'ArrowLeft';if(e.key===nx)goSx(sxi+1);else if(e.key===pv)goSx(sxi-1);
+  });
+  var sxx=null;
+  $('sxView').addEventListener('touchstart',function(e){sxx=e.touches[0].clientX;},{passive:true});
+  $('sxView').addEventListener('touchend',function(e){
+    if(sxx===null)return;var dx=e.changedTouches[0].clientX-sxx;sxx=null;
+    if(Math.abs(dx)>60)goSx(sxi+(dx*RT>0?1:-1));
+  });
+  window.addEventListener('resize',function(){goSx(sxi);});
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){goSx(sxi);});
+
+  document.addEventListener('digaily:languagechange',function(){
+    RT=document.documentElement.dir==='rtl'?1:-1;
+    var activeSlide=si;
+    renderCats();renderGrid();buildSlider();goSlide(activeSlide);renderCart();
+    renderSx();goSx(sxi);
+    if(!mega.hidden){renderMegaL();renderMegaR();}
+    var hash=location.hash||'',productId=hash.match(/^#\/?product\/(\d+)/);
+    if(productId){var product=pOf(productId[1]);if(product)renderProduct(product);}
+    if(vA&&!vA.hidden)renderAccount(curTab);
+    var title=productId&&pOf(productId[1])?tr(pOf(productId[1]).name):hash.indexOf('#/account')===0?'Account Center':hash.indexOf('#/checkout')===0?'Checkout':hash==='#/done'?'Order confirmed':'Digaily';
+    document.title=locale?locale.translate(title+' | Digaily'):title+' | Digaily';
+  });
+
+  icons();buildSlider();buildShowcase();renderCats();renderGrid();renderCart();route();
 })();

@@ -39,5 +39,8 @@ namespace Data.Class.entities.Account
             set;
         }
 
+        public int RoleId { get; set; } = 2;
+        public Role Role { get; set; } = null!;
+
     }
 }

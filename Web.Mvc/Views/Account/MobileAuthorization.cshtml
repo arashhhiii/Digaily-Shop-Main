@@ -1,50 +1,149 @@
 @model Data.Class.DTOs.Account.MobileActivationDTOs
+@inject Microsoft.Extensions.Configuration.IConfiguration Configuration
 
 @{
     ViewData["Title"] = "Mobile authorization";
     Layout = null;
-    var Mobile = (string)ViewData["Moblie"];
+    var siteKey = Configuration["GoogleReCaptcha:SiteKey"];
 }
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@ViewData["Title"]</title>
-    <link rel="stylesheet" href="~/Site/Account.css">
+    <title>Verify your phone | Digaily</title>
+    <link rel="stylesheet" href="~/Site/ocdeVerfication.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=DM+Sans:wght@400;500;700&display=swap">
     <style>
+
     </style>
 </head>
-<section class="pane code" id="paneCode" aria-labelledby="tCode" inert>
-    <h1 id="tCode">Enter the code</h1>
-    <p class="sub">We sent a 6 digit code to <b id="codeTo">your phone</b>.</p>
-    <form asp-area="" asp-controller="Account" asp-action="MobileAuthorization" method="post" id="fCode" novalidate>
-        <input type="hidden" asp-for="Token" id="CaptchInput"/>
-        <input asp-for="Mobile" value="@Mobile"/>
-        <div class="field">
-            <span id="otpLabel">6 digit code</span>
-            <div class="otp" id="otp" role="group" aria-labelledby="otpLabel">
-                <input asp-for="activationCodePart1" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="one-time-code" aria-label="Digit 1 of 6">
-                <input asp-for="activationCodePart2" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" aria-label="Digit 2 of 6">
-                <input asp-for="activationCodePart3" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" aria-label="Digit 3 of 6">
-                <input asp-for="activationCodePart4" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" aria-label="Digit 4 of 6">
-                <input asp-for="activationCodePart5" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" aria-label="Digit 5 of 6">
-                <input asp-for="activationCodePart6" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" aria-label="Digit 6 of 6">
+<body>
+    <div class="bg" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+    <div class="stage">
+        <header class="glass bar">
+            <a class="logo" asp-area="" asp-controller="Home" asp-action="Index" aria-label="Digaily home">
+                <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="11" fill="#1E4FB8" /><path d="M18 9v13M12.5 16.5L18 22l5.5-5.5M10 27h16" fill="none" stroke="#FFFBE6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                <span>Digaily</span>
+            </a>
+            <a class="back" asp-area="" asp-controller="Account" asp-action="RegisterOrLogin" asp-route-Mobile="@Model.Mobile" asp-route-returnUrl="@Model.returnUrl">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6" /></svg>
+                Back to sign in
+            </a>
+        </header>
+
+        <main class="glass card" aria-labelledby="t">
+            <div class="mark" aria-hidden="true">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFFBE6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6z" /><path d="M8.8 12.2l2.2 2.2 4.2-4.4" /></svg>
             </div>
-            <span class="err" id="otpE"></span>
-        </div>
-        <p class="demo" id="demoHint" hidden>Demo mode: no real text message is sent. Your code is <b id="demoCode"></b></p>
-        <div class="msg" id="mCode" role="status" aria-live="polite"></div>
-        <button class="btn primary big full" type="submit" id="bCode">@ViewData["Title"]</button>
-    </form>
-    <p class="resend">
-        <span id="resendTxt" class="t"></span>
-        <button class="linkbtn" type="button" id="resend" hidden>Resend code</button>
-        <button class="linkbtn" type="button" id="changeNum">Change number</button>
-    </p>
-</section>
-<script src="~/Site/Account.js" defer/>
+            <h1 id="t">Verify your phone</h1>
+            <p class="sub">We sent a 6 digit code to <b id="codeTo">@Model.Mobile</b>. Enter it below to sign in.</p>
+            @if (TempData["Error Message"] is string errorMessage)
+            {
+                <p class="msg bad" role="alert">@errorMessage</p>
+            }
+            <form asp-area="" asp-controller="Account" asp-action="MobileAuthorization" method="post" id="fCode" novalidate>
+                <input type="hidden" asp-for="Mobile" />
+                <input type="hidden" asp-for="returnUrl" />
+                <input type="hidden" asp-for="Token" />
+                <div class="field">
+                    <span id="otpLabel">6 digit code</span>
+                    <div class="otp" id="otp" role="group" aria-labelledby="otpLabel">
+                        <input asp-for="activationCodePart1" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="6" placeholder=" " autocomplete="one-time-code" aria-label="Digit 1 of 6">
+                        <input asp-for="activationCodePart2" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="6" placeholder=" " autocomplete="off" aria-label="Digit 2 of 6">
+                        <input asp-for="activationCodePart3" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="6" placeholder=" " autocomplete="off" aria-label="Digit 3 of 6">
+                        <input asp-for="activationCodePart4" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="6" placeholder=" " autocomplete="off" aria-label="Digit 4 of 6">
+                        <input asp-for="activationCodePart5" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="6" placeholder=" " autocomplete="off" aria-label="Digit 5 of 6">
+                        <input asp-for="activationCodePart6" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="6" placeholder=" " autocomplete="off" aria-label="Digit 6 of 6">
+                    </div>
+                    <span class="err" id="otpE"></span>
+                    @if (TempData["DevelopmentActivationCode"] is string developmentCode)
+                    {
+                        <p class="msg" role="status">SMS is unavailable in Development. Use this verification code: <strong>@developmentCode</strong></p>
+                    }
+                </div>
+                <div class="msg" id="mCode" role="status" aria-live="polite"></div>
+                <button class="btn primary full" type="submit" id="bCode">Verify and sign in</button>
+            </form>
+
+            <div class="resend" id="resendBox">
+                <div class="resend-top">
+                    <a class="linkbtn" id="resend" asp-controller="Account" asp-action="ResendVerificationCode" asp-route-MobileNumber="@Model.Mobile" asp-route-returnUrl="@Model.returnUrl">Resend code</a>
+                </div>
+            </div>
+
+            <div class="links">
+                <a asp-controller="Account" asp-action="RegisterOrLogin" asp-route-returnUrl="@Model.returnUrl" id="changeNum">Change number</a>
+                <a asp-controller="Home" asp-action="Index">Continue as guest</a>
+            </div>
+        </main>
+    </div>
+
+    <div class="sr" id="live" aria-live="polite"></div>
+
+    <script src="https://www.google.com/recaptcha/api.js?render=@siteKey"></script>
+    <script>
+        const codeForm = document.getElementById('fCode');
+        const codeInputs = Array.from(document.querySelectorAll('.otp input'));
+        const captchaInput = codeForm.querySelector('[name="Token"]');
+        const siteKey = '@siteKey';
+        captchaInput.value = '';
+
+        function fillCode(startIndex, value) {
+            const digits = value.replace(/\D/g, '').slice(0, codeInputs.length - startIndex);
+            digits.split('').forEach((digit, offset) => codeInputs[startIndex + offset].value = digit);
+            codeInputs[Math.min(startIndex + digits.length, codeInputs.length - 1)].focus();
+        }
+
+        codeInputs.forEach((input, index) => {
+            input.addEventListener('input', () => {
+                const digits = input.value.replace(/\D/g, '');
+                if (digits.length > 1) {
+                    fillCode(index === 0 ? 0 : index, digits);
+                    return;
+                }
+                input.value = digits;
+                if (digits && index < codeInputs.length - 1) codeInputs[index + 1].focus();
+            });
+            input.addEventListener('paste', event => {
+                const digits = event.clipboardData.getData('text').replace(/\D/g, '');
+                if (!digits) return;
+                event.preventDefault();
+                fillCode(0, digits);
+            });
+            input.addEventListener('keydown', event => {
+                if (event.key === 'Backspace' && !input.value && index > 0) codeInputs[index - 1].focus();
+            });
+        });
+
+        codeForm.addEventListener('submit', event => {
+            const code = codeInputs.map(input => input.value).join('');
+            if (code.length !== codeInputs.length) {
+                event.preventDefault();
+                document.getElementById('otpE').textContent = 'Enter all 6 digits.';
+                codeInputs.find(input => !input.value)?.focus();
+                return;
+            }
+            if (captchaInput.value) return;
+
+            event.preventDefault();
+            if (!siteKey || !window.grecaptcha) {
+                document.getElementById('mCode').textContent = 'CAPTCHA is not configured. Please try again later.';
+                return;
+            }
+
+            window.grecaptcha.ready(() => {
+                window.grecaptcha.execute(siteKey, { action: 'authorization' }).then(token => {
+                    captchaInput.value = token;
+                    codeForm.requestSubmit();
+                }).catch(() => {
+                    document.getElementById('mCode').textContent = 'CAPTCHA verification failed. Please try again.';
+                });
+            });
+        });
+    </script>
+</body>
 </html>

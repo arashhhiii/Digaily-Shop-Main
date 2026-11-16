@@ -19,7 +19,7 @@
   });
   var $=function(id){return document.getElementById(id);};
   var auth=$('auth'),paneIn=$('paneIn'),paneUp=$('paneUp'),paneCode=$('paneCode'),ovL=$('ovL'),ovR=$('ovR');
-  var MAIN='Digaily main.html';
+  var MAIN='/';
 
   /* show / hide password */
   document.querySelectorAll('[data-eye]').forEach(function(b){

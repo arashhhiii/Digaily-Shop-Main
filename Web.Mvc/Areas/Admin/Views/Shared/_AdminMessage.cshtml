@@ -1,0 +1,24 @@
+﻿@using System.Text.Json
+@{
+    var notifications = new[]
+    {
+        new { Message = TempData["SuccessMessage"] as string, Type = "success" },
+        new { Message = TempData["ErrorMessage"] as string, Type = "error" },
+        new { Message = TempData["InfoMessage"] as string, Type = "info" },
+        new { Message = TempData["WarningMessage"] as string, Type = "warning" }
+    }
+    .Where(notification => !string.IsNullOrWhiteSpace(notification.Message))
+    .Select(notification => new { message = notification.Message, type = notification.Type })
+    .ToArray();
+}
+@if (notifications.Length > 0)
+{
+    <script>
+        $(function () {
+            const notifications = @Html.Raw(JsonSerializer.Serialize(notifications));
+            notifications.forEach(function (notification) {
+                toastr[notification.type](notification.message);
+            });
+        });
+    </script>
+}

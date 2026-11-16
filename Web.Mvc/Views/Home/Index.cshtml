@@ -1,4 +1,4 @@
-﻿<div id="v-home" style="display:flex;flex-direction:column;gap:72px">
+﻿<div id="v-home" class="home-page">
 
     <section class="glass slider" id="slider" aria-roledescription="carousel" aria-label="Suggested products">
         <div class="sl-view"><div class="sl-track" id="slTrack"></div></div>
@@ -48,6 +48,27 @@
         <div class="grid" id="grid"></div>
         <div class="more-wrap" id="moreWrap" hidden><button class="btn glassy big" id="moreBtn" type="button" aria-expanded="false" aria-controls="grid"></button></div>
         <p class="hint" id="none" hidden>No products match your search. Try another word.</p>
+    </section>
+
+    <section class="sx" id="showcase" aria-label="Product showcase">
+        <div class="sec-head">
+            <h2>Explore products</h2>
+            <p>Browse products, view details, and discover related items.</p>
+        </div>
+        <div class="glass sx-box">
+            <nav class="sx-steps" id="sxSteps" aria-label="Product showcase steps"></nav>
+            <div class="sx-view" id="sxView">
+                <div class="sx-track" id="sxTrack">
+                    <div class="sx-pane" id="sxP0"></div>
+                    <div class="sx-pane" id="sxP1"></div>
+                    <div class="sx-pane" id="sxP2"></div>
+                </div>
+            </div>
+            <div class="sx-bar">
+                <button class="btn glassy" id="sxPrev" type="button">Previous step</button>
+                <button class="btn primary" id="sxNext" type="button">Next step</button>
+            </div>
+        </div>
     </section>
 
     <section id="bundles" class="glass-dark banner">

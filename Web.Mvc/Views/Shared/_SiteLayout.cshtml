@@ -1,5 +1,5 @@
 ﻿<!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
 
@@ -15,18 +15,25 @@
 <body>
     @await Component.InvokeAsync("SiteHeader")
     @RenderBody()
+    <partial name="~/Views/Shared/Copmponent/SiteProductPage/ProductPage.cshtml" />
+    <partial name="~/Views/Shared/Copmponent/SiteCheckoutPage/CheckoutPage.cshtml" />
+    <partial name="~/Views/Shared/Copmponent/SiteConfirmationPage'/ConfirmationPage.cshtml" />
     @await Component.InvokeAsync("SiteFooter")
     @await Component.InvokeAsync("HomeCartViewer")
 
     <partial name="_SiteAccountCenter" />
-    
-    
         <partial name="_SiteCartView" />
-
-    
         <partial name="_SiteDockMenu" />
         <partial name="_SiteFooterRef" />
     @RenderSection("SiteFooterSection", false);
+        @if (ViewData["AccountCenterUser"] is string accountCenterUser)
+        {
+            <script>
+                try { localStorage.setItem('digaily-user', @Html.Raw(System.Text.Json.JsonSerializer.Serialize(accountCenterUser))); } catch (e) { }
+                window.location.replace('/#/account');
+            </script>
+        }
+        <script src="~/Site/locale.js" defer></script>
         <script src="~/Site/home.js" defer></script>
         <script>
         </script>

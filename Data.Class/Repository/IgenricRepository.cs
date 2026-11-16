@@ -1,4 +1,5 @@
 ﻿using Data.Class.entities.Common;
+using Data.Class.entities.ProductEntities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,7 +17,11 @@ namespace Data.Class.Repository
         void DeleteEntity(List<TEntity> entity);
         Task DeletPermanent(TEntity entity);
         Task SaveAsync();
-
-
+        void DeletPermanentEntity(List<ProductFeture> fetures);
+        void DeletPermanentEntity(List<ProductComment> comment);
+        Task AddEntity(ProductCategory category);
+        Task AddEntity(ProductColor color);
+        Task AddEntity(ProductGallery gallery);
+        Task AddEntity(ProductVarient varient);
     }
 }

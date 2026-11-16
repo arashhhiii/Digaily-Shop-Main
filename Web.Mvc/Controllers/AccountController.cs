@@ -8,33 +8,54 @@ using System.Security.Claims;
 
 namespace Web.Mvc.Controllers
 {
-    public class AccountController(IUserService userService) : SideBaseCopntroller
+    public class AccountController(IUserService userService, ICaptchaValidator captchaValidator, IWebHostEnvironment environment) : SideBaseCopntroller
     {
         #region CTOR
         private readonly IUserService _userService = userService;
-        private readonly ISmsService _smsService;
-        private readonly ICaptchaValidator _CaptchaValidator;
+        private readonly ICaptchaValidator _CaptchaValidator = captchaValidator;
+        private readonly IWebHostEnvironment _environment = environment;
         #endregion
         #region Register
         [HttpGet("register")]
-        public async Task<IActionResult> RegisterOrLogin(string Mobile, string? returnUrl = null) {
+        public IActionResult RegisterOrLogin(string? Mobile = null, string? returnUrl = null) {
             ViewData["ReturnUrl"] = returnUrl;
             ViewData["Mobile"] = Mobile;
-            return View();
+            return View(new registerUserDto { PhoneNumber = Mobile ?? string.Empty, returnUrl = returnUrl });
         }
         [HttpPost("register"), ValidateAntiForgeryToken] 
         public async Task<IActionResult> RegisterOrLogin(registerUserDto dto)
         {
-            await _userService.RegisterOrLoginUser(dto);
-            return RedirectToAction("MobileAuthorization", new {retutnUrl = dto.returnUrl, Mobile = dto.PhoneNumber});
+            if (!ModelState.IsValid)
+            {
+                ViewData["Mobile"] = dto.PhoneNumber;
+                ViewData["AuthMethod"] = Request.Form.ContainsKey(nameof(dto.PhoneNumber)) ? "phone" : "email";
+                return View(dto);
+            }
+            if (!await _CaptchaValidator.IsCaptchaPassedAsync(dto.Token))
+            {
+                TempData[ErrorMessage] = "We could not verify the CAPTCHA. Please try again.";
+                ViewData["Mobile"] = dto.PhoneNumber;
+                ViewData["AuthMethod"] = Request.Form.ContainsKey(nameof(dto.PhoneNumber)) ? "phone" : "email";
+                return View(dto);
+            }
+
+            var delivery = await _userService.RegisterOrLoginUserWithCode(dto);
+            if (!delivery.SmsSent)
+            {
+                if (_environment.IsDevelopment() && delivery.DevelopmentCode != null)
+                    TempData["DevelopmentActivationCode"] = delivery.DevelopmentCode;
+                else
+                    TempData[ErrorMessage] = "The activation SMS could not be sent. Please try again later.";
+            }
+            return RedirectToAction(nameof(MobileAuthorization), new { returnUrl = dto.returnUrl, Mobile = dto.PhoneNumber });
         }
         #endregion
         #region MobileAuthorization
         [HttpGet("authorization")]
-        public async Task<IActionResult> MobileAuthorization(string? returnUrl = null)
+        public IActionResult MobileAuthorization(string? Mobile = null, string? returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
-            return View();
+            return View(new MobileActivationDTOs { Mobile = Mobile ?? string.Empty, returnUrl = returnUrl });
         }
 
         [HttpPost("authorization"), ValidateAntiForgeryToken]
@@ -60,8 +81,14 @@ namespace Web.Mvc.Controllers
                 var claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.Name, user.MobileNumber),
-                    new Claim(ClaimTypes.NameIdentifier, user.id.ToString())
+                    new Claim(ClaimTypes.NameIdentifier, user.id.ToString()),
+                    new Claim(ClaimTypes.Role, user.Role.Name),
+                    new Claim("RoleId", user.RoleId.ToString())
                 };
+                if (!string.IsNullOrWhiteSpace(user.Email))
+                {
+                    claims.Add(new Claim(ClaimTypes.Email, user.Email));
+                }
                 var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                 var principle = new ClaimsPrincipal(identity);
                 var properties = new AuthenticationProperties
@@ -70,13 +97,12 @@ namespace Web.Mvc.Controllers
                 };
                 await HttpContext.SignInAsync(principle, properties);
                 TempData[SuccessMessage] = "Welcome";
-                if (string.IsNullOrEmpty(dto.returnUrl) && Url.IsLocalUrl(dto.returnUrl)){
+                if (!string.IsNullOrEmpty(dto.returnUrl) && Url.IsLocalUrl(dto.returnUrl)){
                     return Redirect(dto.returnUrl);
                 }
-                else
-                {
-                    RedirectToAction("Index", "Home");
-                }
+                TempData[SuccessMessage] = "You have entred successfully";
+                return RedirectToAction("Index", "Home", new { accountCenter = true });
+                
             }
             TempData[ErrorMessage] = "please fix the errors";
             return View(dto);
@@ -84,14 +110,21 @@ namespace Web.Mvc.Controllers
         #endregion
         #region Resend Verification Code
         [HttpGet("ResendVerificationCode")]
-        public async Task<IActionResult> ResendVerificationCode(string MobileNumber)
+        public async Task<IActionResult> ResendVerificationCode(string MobileNumber, string? returnUrl = null)
         {
+            var delivery = await _userService.SendActivationSmsWithCode(MobileNumber);
+            if (delivery.SmsSent)
+            {
+                return RedirectToAction(nameof(MobileAuthorization), new { Mobile = MobileNumber, returnUrl });
+            }
 
-            
-            var res = await _userService.SendActivationSms(MobileNumber);
-            if(res) return RedirectToAction("MobileAuthorization");
-            TempData[ErrorMessage] = "User Phone Number NOt FDound";
-            return RedirectToAction("MobileAuthorization");
+            if (_environment.IsDevelopment() && delivery.DevelopmentCode != null)
+                TempData["DevelopmentActivationCode"] = delivery.DevelopmentCode;
+            else
+                TempData[ErrorMessage] = delivery.DevelopmentCode == null
+                    ? "The phone number was not found."
+                    : "The activation SMS could not be sent. Please try again later.";
+            return RedirectToAction(nameof(MobileAuthorization), new { Mobile = MobileNumber, returnUrl });
 
         }
         #endregion

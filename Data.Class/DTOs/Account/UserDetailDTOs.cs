@@ -8,7 +8,7 @@ namespace Data.Class.DTOs.Account
     public class UserDetailDTOs
     {
         [Key]
-        public long id
+        public long RoleId
         {
             get;
             set;

@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Diagnostics;
 
 
@@ -7,8 +6,14 @@ namespace Web.Mvc.Controllers
 {
     public class HomeController : SideBaseCopntroller
     {
-       public async Task<IActionResult> Index()
+        [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
+        public IActionResult Index()
         {
+            if (Request.Query.ContainsKey("accountCenter") && User.Identity?.IsAuthenticated == true)
+            {
+                ViewData["AccountCenterUser"] = User.FindFirst(System.Security.Claims.ClaimTypes.Email)?.Value ?? User.Identity.Name;
+            }
+
             return View();
         }
 
