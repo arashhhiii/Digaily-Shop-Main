@@ -42,8 +42,6 @@ builder.Services.AddAuthentication(option =>
     option.ExpireTimeSpan = TimeSpan.FromDays(7);
     option.SlidingExpiration = true;
 
-});
-builder.Services.AddSingleton<HtmlEncoder>(HtmlEncoder.Create(allowedRanges: new[] { UnicodeRanges.BasicLatin, UnicodeRanges.Arabic }));
 builder.Services.AddControllersWithViews();
 builder.Services.AddAuthorization(options =>
 {
@@ -58,6 +56,7 @@ builder.Services.AddAuthorization(options =>
 
 var app = builder.Build();
 
+// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -72,11 +71,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.MapStaticAssets();
 
-app.MapAreaControllerRoute(
-    name: "admin",
-    areaName: "Admin",
-    pattern: "Admin/{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
