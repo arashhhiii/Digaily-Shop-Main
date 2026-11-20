@@ -7,42 +7,47 @@ using GoogleReCaptcha.V3.Interface;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.EntityFrameworkCore;
-using System.Text.Encodings.Web;
-using System.Text.Unicode;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// reCAPTCHA settings (supports both key spellings)
 builder.Configuration["GoogleReCaptcha:SiteKey"] ??= builder.Configuration["googleReCaptcha.SiteKey"];
-builder.Configuration["GoogleReCaptcha:SecretKey"] ??= builder.Configuration["googleReCaptcha.SecreteKey"];
+builder.Configuration["GoogleReCaptcha:SecretKey"] ??= builder.Configuration["googleReCaptcha.SecretKey"]
+                                                        ?? builder.Configuration["googleReCaptcha.SecreteKey"];
+
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
     ?? throw new InvalidOperationException("Connection string 'DefaultConnection' was not found.");
+
+// Services
 builder.Services.AddHttpClient<ICaptchaValidator, GoogleReCaptchaValidator>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ISmsService, SmsService>();
 builder.Services.AddScoped(typeof(IgenricRepository<>), typeof(GenricRepository<>));
 builder.Services.AddScoped<IProductService, ProductService>();
+
+// Data Protection (registered once; keys are kept OUTSIDE wwwroot)
 builder.Services.AddDataProtection()
     .PersistKeysToFileSystem(new DirectoryInfo(Path.Combine(builder.Environment.ContentRootPath, "keys")))
     .SetApplicationName("Digaily")
     .SetDefaultKeyLifetime(TimeSpan.FromDays(7));
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(connectionString);
 });
-builder.Services.AddDataProtection().PersistKeysToFileSystem(new DirectoryInfo(Directory.GetCurrentDirectory() + "//www.root/Auth//")).SetApplicationName("Digaily").SetDefaultKeyLifetime(TimeSpan.FromDays(7));
-builder.Services.AddAuthentication(option =>
-{
-    option.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-    option.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-    option.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-    option.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-}).AddCookie(option =>
-{
-    option.LoginPath = "/register";
-    option.LogoutPath = "/log-out";
-    option.ExpireTimeSpan = TimeSpan.FromDays(7);
-    option.SlidingExpiration = true;
+
+// Authentication (cookie)
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(option =>
+    {
+        option.LoginPath = "/register";
+        option.LogoutPath = "/log-out";
+        option.ExpireTimeSpan = TimeSpan.FromDays(7);
+        option.SlidingExpiration = true;
+    });   // <-- this closing was missing in the original
 
 builder.Services.AddControllersWithViews();
+
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("AdminEmail", policy => policy
@@ -63,19 +68,15 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
 app.UseHttpsRedirection();
+
+app.UseStaticFiles();
+
 app.UseRouting();
 
-app.UseAuthentication();
 app.UseAuthorization();
-app.MapStaticAssets();
-
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
-
-
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 app.Run();

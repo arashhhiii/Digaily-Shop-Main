@@ -3,8 +3,9 @@
 
 @{
     ViewData["Title"] = "Register or log in";
-    var mobile = (string)ViewData["Mobile"];
     var siteKey = Configuration["GoogleReCaptcha:SiteKey"];
+    // Only allow known values so nothing unexpected is written into the script block
+    var authMethod = ViewData["AuthMethod"]?.ToString() == "phone" ? "phone" : "email";
     Layout = null;
 }
 
@@ -18,15 +19,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=DM+Sans:wght@400;500;700&display=swap">
-    <style>
-    </style>
 </head>
 <body>
     <div class="bg" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
 
     <div class="stage">
         <header class="glass bar">
-            <a class="logo" asp-controller="Home" asp-area="" asp-action="Index" aria-label="Digaily home"> 
+            <a class="logo" asp-controller="Home" asp-area="" asp-action="Index" aria-label="Digaily home">
                 <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="11" fill="#1E4FB8" /><path d="M18 9v13M12.5 16.5L18 22l5.5-5.5M10 27h16" fill="none" stroke="#FFFBE6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" /></svg>
                 <span>Digaily</span>
             </a>
@@ -47,8 +46,8 @@
 
                 <!-- email + password -->
                 <form asp-area="" asp-controller="Account" asp-action="RegisterOrLogin" method="post" id="fIn" role="tabpanel" aria-labelledby="tabEmail" novalidate>
-                    <input type="hidden" asp-for="Token"/>
-                    <input type="hidden" asp-for="returnUrl" />
+                    <input type="hidden" asp-for="Token" id="TokenEmail" />
+                    <input type="hidden" asp-for="returnUrl" id="returnUrlEmail" />
                     <div class="field">
                         <label for="inEmail">Email</label>
                         <div class="input">
@@ -76,8 +75,8 @@
 
                 <!-- phone number + code -->
                 <form asp-area="" asp-controller="Account" asp-action="RegisterOrLogin" method="post" id="fPh" role="tabpanel" aria-labelledby="tabPhone" novalidate hidden>
-                    <input type="hidden" asp-for="Token" />
-                    <input type="hidden" asp-for="returnUrl" />
+                    <input type="hidden" asp-for="Token" id="TokenPhone" />
+                    <input type="hidden" asp-for="returnUrl" id="returnUrlPhone" />
                     <div class="field">
                         <label for="phNum">Phone number</label>
                         <div class="phone">
@@ -128,7 +127,8 @@
                 <h1 id="tUp">Create your account</h1>
                 <p class="sub">Free to join. Keys land in your inbox.</p>
                 <form asp-area="" asp-controller="Account" asp-action="RegisterOrLogin" method="post" id="fUp" novalidate>
-                    <input type="hidden" asp-for="Token" id="CaptchInput"/>
+                    <input type="hidden" asp-for="Token" id="CaptchInput" />
+                    <input type="hidden" asp-for="returnUrl" id="returnUrlSignup" />
                     <div class="field">
                         <label for="upName">Full name</label>
                         <div class="input">
@@ -163,9 +163,6 @@
                 <p class="switch">Already have an account? <button class="linkbtn" type="button" data-go="in">Sign in</button></p>
             </section>
 
-            <!-- ENTER THE CODE -->
-            
-
             <!-- SLIDING PANEL (desktop) -->
             <div class="ov-wrap" aria-hidden="false">
                 <div class="ov">
@@ -173,7 +170,7 @@
                         <div class="mark"><span data-icon="user" data-size="30" data-stroke="#FFFBE6" data-sw="1.7"></span></div>
                         <h2>Already one of us?</h2>
                         <p>Sign in to pick up where you left off: your orders, keys and cart.</p>
-                        <button class="btn ghost big" type="button" data-go="in">@ViewData["Title"]</button>
+                        <button class="btn ghost big" type="button" data-go="in">Sign in</button>
                     </div>
                     <div class="ov-panel ov-r" id="ovR">
                         <div class="mark"><span data-icon="gift" data-size="30" data-stroke="#FFFBE6" data-sw="1.7"></span></div>
@@ -184,7 +181,7 @@
                             <li><span class="ck" data-icon="check" data-size="14" data-stroke="#FFFBE6" data-sw="2.6"></span>All your orders in one place</li>
                             <li><span class="ck" data-icon="check" data-size="14" data-stroke="#FFFBE6" data-sw="2.6"></span>Secure, simple checkout</li>
                         </ul>
-                        <button class="btn cream big" type="button" data-go="up">@ViewData["Title"]</button>
+                        <button class="btn cream big" type="button" data-go="up">Create account</button>
                     </div>
                 </div>
             </div>
@@ -192,6 +189,11 @@
     </div>
 
     <div class="sr" id="live" aria-live="polite"></div>
+
+    <!-- Layout is null, so the validation scripts (and jQuery, which they need) are loaded here -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+
     <script>
         const auth = document.getElementById('auth');
         const paneIn = document.getElementById('paneIn');
@@ -220,40 +222,42 @@
         tabPhone.addEventListener('click', () => setMethod('phone'));
         tabEmail.addEventListener('click', () => setMethod('email'));
         setMode(location.hash === '#signup' ? 'up' : 'in');
-        setMethod('@(ViewData["AuthMethod"] ?? "email")');
+        setMethod('@authMethod');
     </script>
+
     <script src="https://www.google.com/recaptcha/api.js?render=@siteKey"></script>
     <script>
-        const phoneForm = document.getElementById('fPh');
-        const phoneInput = document.getElementById('phNum');
-        const captchaInput = phoneForm.querySelector('[name="Token"]');
-        const siteKey = '@siteKey';
-        captchaInput.value = '';
+        const recaptchaSiteKey = '@siteKey';
 
-        phoneForm.addEventListener('submit', event => {
-            phoneInput.value = phoneInput.value.replace(/\D/g, '');
-            if (captchaInput.value) return;
+        // Every form that has a Token field gets a reCAPTCHA v3 token before it is submitted
+        document.querySelectorAll('form').forEach(form => {
+            const tokenInput = form.querySelector('input[name="Token"]');
+            if (!tokenInput) return;
+            tokenInput.value = '';
 
-            event.preventDefault();
-            if (!siteKey || !window.grecaptcha) {
-                document.getElementById('mPh').textContent = 'CAPTCHA is not configured. Please try again later.';
-                return;
-            }
+            form.addEventListener('submit', event => {
+                const phoneInput = form.querySelector('#phNum');
+                if (phoneInput) phoneInput.value = phoneInput.value.replace(/\D/g, '');
+                if (tokenInput.value) return;
 
-            window.grecaptcha.ready(() => {
-                window.grecaptcha.execute(siteKey, { action: 'register' }).then(token => {
-                    captchaInput.value = token;
-                    phoneForm.requestSubmit();
-                }).catch(() => {
-                    document.getElementById('mPh').textContent = 'CAPTCHA verification failed. Please try again.';
+                event.preventDefault();
+                const status = form.querySelector('.msg[role="status"]');
+
+                if (!recaptchaSiteKey || !window.grecaptcha) {
+                    if (status) status.textContent = 'CAPTCHA is not configured. Please try again later.';
+                    return;
+                }
+
+                window.grecaptcha.ready(() => {
+                    window.grecaptcha.execute(recaptchaSiteKey, { action: 'register' }).then(token => {
+                        tokenInput.value = token;
+                        form.requestSubmit();
+                    }).catch(() => {
+                        if (status) status.textContent = 'CAPTCHA verification failed. Please try again.';
+                    });
                 });
             });
         });
     </script>
 </body>
 </html>
-
-
-@section SiteFooterSection {
-    <partial name="_ValidationScriptsPartial" />
-}

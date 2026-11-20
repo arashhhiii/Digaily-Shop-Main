@@ -1081,6 +1081,11 @@ namespace Application.Class.Service.Implamentations
             return await _BrandRepository.GetQuery().ToListAsync();
         }
 
+        public Task<string?> EditCategory(long categoryId)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
 
