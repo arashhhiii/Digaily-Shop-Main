@@ -1,14 +1,118 @@
-﻿<div class="scrim" id="scrim"></div>
-<aside class="glass drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle" aria-hidden="true">
+﻿<!-- Cart Background Overlay -->
+<div class="scrim"
+     id="scrim"
+     aria-hidden="true">
+</div>
+
+<!-- Shopping Cart Drawer -->
+<aside class="glass drawer"
+       id="drawer"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="drawerTitle"
+       aria-hidden="true"
+       tabindex="-1"
+       inert>
+
+    <!-- Drawer Header -->
     <div class="d-head">
-        <div style="display:flex;align-items:center"><h2 id="drawerTitle">Your cart</h2><span class="count" id="dCount">0 items</span></div>
-        <button class="iconbtn" id="closeBtn" type="button" aria-label="Close cart"><span data-icon="x" data-size="18" data-stroke="#0F2547" data-sw="2"></span></button>
+
+        <div style="display: flex; align-items: center;">
+
+            <h2 id="drawerTitle">
+                Your Cart
+            </h2>
+
+            <span class="count"
+                  id="dCount"
+                  role="status"
+                  aria-live="polite"
+                  aria-atomic="true">
+                0 items
+            </span>
+
+        </div>
+
+        <!-- Close Button -->
+        <button class="iconbtn"
+                id="closeBtn"
+                type="button"
+                aria-label="Close shopping cart">
+
+            <span data-icon="x"
+                  data-size="18"
+                  data-stroke="#0F2547"
+                  data-sw="2"
+                  aria-hidden="true">
+            </span>
+
+        </button>
+
     </div>
-    <div class="lines" id="dLines"></div>
+
+    <!-- Cart Items -->
+    <div class="lines"
+         id="dLines"
+         aria-label="Shopping cart items">
+    </div>
+
+    <!-- Cart Summary -->
     <div class="sum" id="dSum">
-        <div class="tot"><span>Subtotal</span><b id="dTotal">$0.00</b></div>
-        <div class="note">Taxes are calculated at checkout.</div>
-        <a class="btn primary big full" id="goCheckout" href="#/checkout"><span data-icon="lock" data-size="18" data-stroke="#FFFBE6" data-sw="2"></span>Go to checkout</a>
-        <button class="btn glassy full" id="keepBtn" type="button">Continue shopping</button>
+
+        <!-- Subtotal -->
+        <div class="tot">
+
+            <span>Subtotal</span>
+
+            <b id="dTotal"
+               aria-live="polite"
+               aria-atomic="true">
+                $0.00
+            </b>
+
+        </div>
+
+        <!-- Tax Information -->
+        <div class="note">
+            Taxes are calculated at checkout.
+        </div>
+
+        <!-- Checkout Button -->
+        <a class="btn primary big full"
+           id="goCheckout"
+           href="#/checkout">
+
+            <span data-icon="lock"
+                  data-size="18"
+                  data-stroke="#FFFBE6"
+                  data-sw="2"
+                  aria-hidden="true">
+            </span>
+
+            Go to Checkout
+
+        </a>
+
+        <!-- Continue Shopping -->
+        <button class="btn glassy full"
+                id="keepBtn"
+                type="button">
+
+            Continue Shopping
+
+        </button>
+
     </div>
+
 </aside>
+
+<script>
+
+    let drawer = document.getElementById('drawer');
+    drawer.removeAttribute("inert");
+    drawer.setAttribute("aria-hidden", "false");
+    drawer.focus();
+    drawer.setAttribute("aria-hidden", "true");
+    drawer.setAttribute("inert", "");
+    
+</script>
