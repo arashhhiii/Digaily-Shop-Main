@@ -1,13 +1,100 @@
 ﻿<div class="dock-wrap" id="dockWrap">
-    <section class="glass dk-panel" id="dkPanel" role="dialog" aria-live="polite" aria-labelledby="dkTitle" hidden></section>
-    <nav class="glass dock" id="dock" aria-label="Support, account and about">
-        <button class="dk-trig" id="dkTrig" type="button" aria-label="Open support, sign in and about" aria-expanded="false"><span data-icon="dots" data-size="22" data-sw="0"></span></button>
+
+    <!-- Dock Panel -->
+    <section class="glass dk-panel"
+             id="dkPanel"
+             role="dialog"
+             aria-labelledby="dkTitle"
+             hidden>
+
+        <h2 id="dkTitle">Support and Information</h2>
+
+    </section>
+
+    <!-- Dock Navigation -->
+    <nav class="glass dock"
+         id="dock"
+         aria-label="Support, account and about">
+
+        <!-- Main Trigger -->
+        <button class="dk-trig"
+                id="dkTrig"
+                type="button"
+                aria-label="Open support, sign in and about"
+                aria-expanded="false"
+                aria-haspopup="dialog"
+                aria-controls="dkPanel">
+
+            <span data-icon="dots"
+                  data-size="22"
+                  data-sw="0"
+                  aria-hidden="true"></span>
+
+        </button>
+
+        <!-- Dock Items -->
         <div class="dk-items" id="dkItems">
-            <span class="dk-pill" id="dkPill" aria-hidden="true"></span>
-            <button class="dk" type="button" data-dk="support" aria-expanded="false" aria-controls="dkPanel"><span data-icon="headset" data-size="20" data-sw="1.9"></span><span class="lbl">Support</span></button>
-            <a class="dk" href="@(User.Identity?.IsAuthenticated == true ? "#/account" : Url.Action("RegisterOrLogin", "Account"))" aria-label="@(User.Identity?.IsAuthenticated == true ? "Account center" : "Sign in")"><span data-icon="user" data-size="20" data-sw="1.9"></span><span class="lbl" id="dkSignLbl">@(User.Identity?.IsAuthenticated == true ? "Account Center" : "Sign in")</span></a>
-            <button class="dk" type="button" data-dk="about" aria-expanded="false" aria-controls="dkPanel"><span data-icon="info" data-size="20" data-sw="1.9"></span><span class="lbl">About</span></button>
+
+            <span class="dk-pill"
+                  id="dkPill"
+                  aria-hidden="true"></span>
+
+            <!-- Support -->
+            <button class="dk"
+                    type="button"
+                    data-dk="support"
+                    aria-expanded="false"
+                    aria-controls="dkPanel">
+
+                <span data-icon="headset"
+                      data-size="20"
+                      data-sw="1.9"
+                      aria-hidden="true"></span>
+
+                <span class="lbl">Support</span>
+
+            </button>
+
+            <!-- Account -->
+            <a class="dk"
+               href="@(User.Identity?.IsAuthenticated == true ? "#/account" : Url.Action("RegisterOrLogin", "Account"))"
+               aria-label="@(User.Identity?.IsAuthenticated == true ? "Account center" : "Sign in")">
+
+                <span data-icon="user"
+                      data-size="20"
+                      data-sw="1.9"
+                      aria-hidden="true"></span>
+
+                <span class="lbl" id="dkSignLbl">
+                    @(User.Identity?.IsAuthenticated == true ? "Account Center" : "Sign in")
+                </span>
+
+            </a>
+
+            <!-- About -->
+            <button class="dk"
+                    type="button"
+                    data-dk="about"
+                    aria-expanded="false"
+                    aria-controls="dkPanel">
+
+                <span data-icon="info"
+                      data-size="20"
+                      data-sw="1.9"
+                      aria-hidden="true"></span>
+
+                <span class="lbl">About</span>
+
+            </button>
+
         </div>
+
     </nav>
+
 </div>
-<div class="sr" aria-live="polite" id="live"></div>
+
+<!-- Screen Reader Announcements -->
+<div class="sr"
+     id="live"
+     aria-live="polite"
+     aria-atomic="true"></div>

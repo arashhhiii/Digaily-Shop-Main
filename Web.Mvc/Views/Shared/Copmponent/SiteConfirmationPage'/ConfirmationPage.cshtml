@@ -1,8 +1,46 @@
-﻿<div id="v-done" hidden>
+﻿<!-- Order Completion View -->
+<section id="v-done"
+         aria-labelledby="doneTitle"
+         tabindex="-1"
+         hidden>
+
     <div class="glass done-card">
-        <div class="ico"><span data-icon="check" data-size="36" data-stroke="#FFFBE6" data-sw="2.2"></span></div>
-        <h1>Order confirmed</h1>
-        <p id="doneMsg">Thank you! Your keys and download links are on their way.</p>
-        <div class="row" style="justify-content:center"><a class="btn primary big" href="#/shop/All">Keep shopping</a></div>
+
+        <!-- Success Icon -->
+        <div class="ico" aria-hidden="true">
+            <span data-icon="check"
+                  data-size="36"
+                  data-stroke="#FFFBE6"
+                  data-sw="2.2">
+            </span>
+        </div>
+
+        <!-- Completion Heading -->
+        <h1 id="doneTitle">
+            Order Confirmed
+        </h1>
+
+        <!-- Confirmation Message -->
+        <p id="doneMsg"
+           role="status"
+           aria-live="polite"
+           aria-atomic="true">
+            Thank you! Your keys and download links are on their way.
+        </p>
+
+        <!-- Navigation -->
+        <div class="row" style="justify-content: center;">
+
+            <a class="btn primary big"
+               href="#/shop/All"
+               aria-label="Continue shopping">
+
+                Keep Shopping
+
+            </a>
+
+        </div>
+
     </div>
-</div>
+
+</section>
